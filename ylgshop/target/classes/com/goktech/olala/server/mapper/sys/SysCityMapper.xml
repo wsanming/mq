@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.sys.SysCityDao">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.sys.SysCity">
+    <id column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="CITY_CODE" jdbcType="VARCHAR" property="cityCode" />
+    <result column="CITY_NAME" jdbcType="VARCHAR" property="cityName" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    DELETE FROM SYS_CITY
+    WHERE CITY_ID = #{cityId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.sys.SysCity">
+    INSERT INTO SYS_CITY (CITY_ID, CITY_CODE, CITY_NAME
+      )
+    VALUES (#{cityId,jdbcType=INTEGER}, #{cityCode,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.sys.SysCity">
+    UPDATE SYS_CITY
+    SET CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      CITY_NAME = #{cityName,jdbcType=VARCHAR}
+    WHERE CITY_ID = #{cityId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT CITY_ID, CITY_CODE, CITY_NAME
+    FROM SYS_CITY
+    WHERE CITY_ID = #{cityId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT CITY_ID, CITY_CODE, CITY_NAME
+    FROM SYS_CITY
+  </select>
+</mapper>

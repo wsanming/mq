@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmLoginMapper">
+    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmLogin">
+        <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId"/>
+        <result column="LOGIN_NAME" jdbcType="VARCHAR" property="loginName"/>
+        <result column="PASSWORD" jdbcType="VARCHAR" property="password"/>
+        <result column="USER_STATUS" jdbcType="INTEGER" property="userStatus"/>
+        <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmLogin">
+    INSERT INTO C_LOGIN (CUSTOMER_ID, LOGIN_NAME, PASSWORD,
+      USER_STATUS, MODIFIED_TIME)
+    VALUES (#{customerId,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{userStatus,jdbcType=BIT}, #{modifiedTime,jdbcType=TIMESTAMP})
+  </insert>
+
+    <insert id="register" parameterType="com.goktech.olala.server.pojo.customer.CtmLogin">
+    INSERT INTO C_LOGIN (CUSTOMER_ID, LOGIN_NAME, PASSWORD,
+      USER_STATUS, MODIFIED_TIME)
+    VALUES (#{customerId,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{userStatus,jdbcType=INTEGER}, #{modifiedTime,jdbcType=TIMESTAMP})
+  </insert>
+
+    <select id="findUser" resultMap="BaseResultMap">
+    SELECT LOGIN_NAME FROM C_LOGIN
+        <where>
+            LOGIN_NAME=#{loginName}
+        </where>
+  </select>
+
+    <select id="findInfoByLoginName" resultMap="BaseResultMap">
+        SELECT CUSTOMER_ID, LOGIN_NAME, PASSWORD, USER_STATUS, MODIFIED_TIME
+        FROM C_LOGIN
+        <where>
+            LOGIN_NAME=#{loginName}
+        </where>
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+    SELECT CUSTOMER_ID, LOGIN_NAME, PASSWORD, USER_STATUS, MODIFIED_TIME
+    FROM C_LOGIN
+  </select>
+
+    <select id="selectByParam" resultMap="BaseResultMap">
+        SELECT CUSTOMER_ID, LOGIN_NAME, PASSWORD, USER_STATUS, MODIFIED_TIME FROM C_LOGIN
+        <where>
+            LOGIN_NAME=#{userName} AND PASSWORD=#{pwd}
+        </where>
+  </select>
+
+</mapper>

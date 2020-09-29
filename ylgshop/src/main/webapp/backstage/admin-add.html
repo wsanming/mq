@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>添加管理员 - 管理员管理 - H-ui.admin v3.1</title>
+<meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+<article class="page-container">
+	<form class="form form-horizontal" id="form-admin-add">
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="hidden" class="input-text" value="" id="userId" name="userId">
+			<input type="text" class="input-text" value="" placeholder="" id="userName" name="userName">
+		</div>
+	</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>真实姓名：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="realName" name="realName">
+			</div>
+		</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>初始密码：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="password" class="input-text" autocomplete="off" value="" placeholder="请输入6-8位的密码" id="password" name="password">
+		</div>
+	</div>
+	<div class="row cl" id="confirmPwd">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="password" class="input-text" autocomplete="off"  placeholder="确认新密码" id="password2" name="password2">
+		</div>
+	</div>
+	<!--<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
+		<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+			<div class="radio-box">
+				<input type="radio" value="1" id="man" name="gender" checked>
+				<label for="man">男</label>
+			</div>
+			<div class="radio-box">
+				<input type="radio" value="2" id="lady" name="gender">
+				<label for="lady">女</label>
+			</div>
+			<div class="radio-box">
+				<input type="radio" value="0" id="unknown" name="gender">
+				<label for="unknown">保密</label>
+			</div>
+		</div>
+	</div>-->
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" placeholder="@" name="email" id="email">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3">角色：</label>
+		<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+			<select class="select" name="roleId" id="adminRole" >
+			</select>
+			</span> </div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3">备注：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<textarea name="remark" id="remark" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true"></textarea>
+			<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+		</div>
+	</div>
+	<div class="row cl">
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+		</div>
+	</div>
+	</form>
+</article>
+
+<!--_footer 作为公共模版分离出去--> 
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript">
+$(function(){
+	var userId = getParamForUrl("userId");
+	if (userId != "" && userId != undefined && userId != "undefined") {
+		$("#password").attr("disabled", true);
+		$("#confirmPwd").hide();
+		initAccountInfo(userId);
+	}
+	initRoles();
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	
+	$("#form-admin-add").validate({
+		rules:{
+			userName:{
+				required:true,
+				minlength:4,
+				maxlength:16
+			},
+			realName:{
+				required:true,
+				maxlength:18
+			},
+			password:{
+				required:true,
+				minlength:6,
+				maxlength:8
+			},
+			password2:{
+				required:true,
+				equalTo: "#password"
+			},
+			sex:{
+				required:true,
+			},
+			mobile:{
+				required:true,
+				isPhone:true,
+			},
+			email:{
+				required:true,
+				email:true,
+			},
+			adminRole:{
+				required:true,
+			},
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			var index = parent.layer.getFrameIndex(window.name);
+			$(form).ajaxSubmit({
+				type: 'post',
+				url: '../sysAccountApi/saveAccountInfo.do',
+				async:true,
+				data:{
+					params:JSON.stringify($(form).serializeObject())
+				},
+				success:function(data){
+					if(data.respData.respCode == 10000){
+						if(data.respData.result == 1){
+							layer.msg('信息保存成功!',{icon: 6,time:2000});
+							parent.location.reload();
+							// parent.$('.btn-refresh').click();
+							parent.layer.close(index);
+						}else{
+							layer.msg('信息保存失败!',{icon: 6,time:2000});
+							parent.layer.close(index);
+						}
+
+					}else{
+						layer.msg(data.respData.respMsg,{icon: 6,time:2000});
+						parent.location.reload();
+						// parent.$('.btn-refresh').click();
+					}
+				},
+				error:function(data){
+					layer.msg('服务异常，请联系管理员处理!',{icon: 6,time:3000});
+					// parent.layer.close(index);
+				}
+			});
+		}
+	});
+});
+
+/**
+ *	初始化账号详情信息
+ *
+ * @param userId
+ */
+function initAccountInfo(id){
+	var service = {};
+	service.userId = id;
+	$.ajax({
+		type: 'post',
+		url: '../sysAccountApi/queryAccountDetailById.do',
+		async:false,
+		data:{
+			params:JSON.stringify(service)
+		},
+		success:function(data){
+			if(data.respData.respCode == 10000){
+				var accountInfo = data.respData.result;
+				$("#userId").val(id);
+				$("#password").val(accountInfo.password);
+				$("#password2").val(accountInfo.password);
+				$("#userName").val(accountInfo.userName);
+				$("#realName").val(accountInfo.realName);
+				$("#mobile").val(accountInfo.mobile);
+				$("#email").val(accountInfo.email);
+				$("#adminRole").val(accountInfo.roleId);
+				$("#remark").val(accountInfo.remark);
+			}else{
+				layer.msg('未查询到数据!',{icon: 6,time:2000});
+			}
+		},
+		error:function(data){
+			layer.msg('服务异常，请联系管理员处理!',{icon: 6,time:3000});
+		}
+	});
+}
+//初始化角色下拉列表
+function initRoles(){
+	$.ajax({
+		type: 'post',
+		url: '../sysAccountApi/queryAllRoles.do',
+		async:false,
+		dataType:'json',
+		data:{
+			params:{}
+		},
+		success:function(data){
+			if(data.respData.respCode == 10000){
+				var roleList = data.respData.result;
+				if(roleList.length > 0){
+					$.each(roleList,function(index, val) {
+						jQuery("#adminRole").append("<option value='"+val.roleId+"'>" + val.roleName + "</option>");
+					})
+				}
+			}else{
+				layer.msg('未查询到数据!',{icon: 6,time:2000});
+			}
+		},
+		error:function(data){
+			layer.msg('服务异常，请联系管理员处理!',{icon: 6,time:3000});
+		}
+	});
+}
+
+$.fn.serializeObject = function () {
+	var o = {};
+	var a = this.serializeArray();
+	$.each(a, function () {
+		if (o[this.name]) {
+			if (!o[this.name].push) {
+				o[this.name] = [o[this.name]];
+			}
+			o[this.name].push(this.value || '');
+		} else {
+			o[this.name] = this.value || '';
+		}
+	});
+	return o;
+};
+
+//获取表格id值
+function getParamForUrl(param) {
+	var url = location.href;
+	var i = url.indexOf('?');
+	if (i == -1) return;
+	var querystr = url.substr(i + 1);
+	var arr1 = querystr.split('&');
+	var arr2 = new Object();
+	for (i in arr1) {
+		var ta = arr1[i].split('=');
+		arr2[ta[0]] = ta[1];
+	}
+	return arr2[param];
+}
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

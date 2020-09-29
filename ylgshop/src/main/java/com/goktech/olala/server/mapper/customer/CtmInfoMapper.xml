@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmInfo">
+        <id column="CUSTOMER_INF_ID" jdbcType="BIGINT" property="customerInfId" />
+        <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
+        <result column="CUSTOMER_NAME" jdbcType="VARCHAR" property="customerName" />
+        <result column="REAL_NAME" jdbcType="VARCHAR" property="realName" />
+        <result column="IDENTY_CARD_TYPE" jdbcType="INTEGER" property="identyCardType" />
+        <result column="IDENTY_CARD_NO" jdbcType="VARCHAR" property="identyCardNo" />
+        <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
+        <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+        <result column="GENDER" jdbcType="INTEGER" property="gender" />
+        <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
+        <result column="CITY" jdbcType="VARCHAR" property="city" />
+        <result column="USER_POINT" jdbcType="INTEGER" property="userPoint" />
+        <result column="REGISTER_TIME" jdbcType="TIMESTAMP" property="registerTime" />
+        <result column="CUSTOMER_STATUS" jdbcType="INTEGER" property="customerStatus" />
+        <result column="IS_DEL" jdbcType="INTEGER" property="isDel" />
+        <result column="CUSTOMER_LEVEL" jdbcType="INTEGER" property="customerLevel" />
+        <result column="USER_BALANCE" jdbcType="INTEGER" property="userBalance" />
+        <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+        <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime" />
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        DELETE FROM C_CUSTOMER_INFO
+        WHERE CUSTOMER_INF_ID = #{customerInfId,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.customer.CtmInfo">
+        INSERT INTO C_CUSTOMER_INFO
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                CUSTOMER_ID,
+                CUSTOMER_NAME,
+                <if test="realName != null and realName != ''">
+                    REAL_NAME,
+                </if>
+                <if test="identyCardType != null">
+                    IDENTY_CARD_TYPE,
+                </if>
+                <if test="identyCardNo != null and identyCardNo != ''">
+                    IDENTY_CARD_NO,
+                </if>
+                <if test="userMobile != null and userMobile != ''">
+                    USER_MOBILE,
+                </if>
+                <if test="email != null and email != ''">
+                    EMAIL,
+                </if>
+                <if test="gender != null">
+                    GENDER,
+                </if>
+                <if test="birthday != null and birthday != ''">
+                    BIRTHDAY,
+                </if>
+                <if test="city != null and city != ''">
+                    CITY,
+                </if>
+                <if test="userPoint != null">
+                    USER_POINT,
+                </if>
+                <if test="registerTime != null">
+                    REGISTER_TIME,
+                </if>
+                <if test="customerStatus != null">
+                    CUSTOMER_STATUS,
+                </if>
+                <if test="customerLevel != null">
+                    CUSTOMER_LEVEL,
+                </if>
+                <if test="userBalance != null">
+                    USER_BALANCE,
+                </if>
+                <if test="remark != null and remark != ''">
+                    REMARK,
+                </if>
+                <if test="modifiedTime != null">
+                    MODIFIED_TIME,
+                </if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                #{customerId,jdbcType=VARCHAR},
+                #{customerName,jdbcType=VARCHAR},
+                <if test="realName != null and realName != ''">
+                    #{realName,jdbcType=VARCHAR},
+                </if>
+                <if test="identyCardType != null">
+                    #{identyCardType,jdbcType=INTEGER},
+                </if>
+                <if test="identyCardNo != null and identyCardNo != ''">
+                    #{identyCardNo,jdbcType=VARCHAR},
+                </if>
+                <if test="userMobile != null and userMobile != ''">
+                    #{userMobile,jdbcType=VARCHAR},
+                </if>
+                <if test="email != null and email != ''">
+                    #{email,jdbcType=VARCHAR},
+                </if>
+                <if test="gender != null">
+                    #{gender,jdbcType=INTEGER},
+                </if>
+                <if test="birthday != null and birthday != ''">
+                    #{birthday,jdbcType=VARCHAR},
+                </if>
+                <if test="city != null">
+                    #{city,jdbcType=VARCHAR},
+                </if>
+                <if test="userPoint != null">
+                    #{userPoint,jdbcType=INTEGER},
+                </if>
+                <if test="registerTime != null">
+                    #{registerTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="customerStatus != null">
+                    #{customerStatus,jdbcType=INTEGER},
+                </if>
+                <if test="customerLevel != null">
+                    #{customerLevel,jdbcType=INTEGER},
+                </if>
+                <if test="userBalance != null">
+                    #{userBalance,jdbcType=INTEGER},
+                </if>
+                <if test="remark != null and remark != ''">
+                    #{remark,jdbcType=VARCHAR},
+                </if>
+                <if test="modifiedTime != null">
+                    #{modifiedTime,jdbcType=TIMESTAMP},
+                </if>
+            </trim>
+
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmInfo">
+        UPDATE C_CUSTOMER_INFO
+        <set>
+            <if test="customerId != null">
+                CUSTOMER_ID=#{customerId,jdbcType=VARCHAR},
+            </if>
+            <if test="customerName != null and customerName != ''">
+                CUSTOMER_NAME=#{customerName,jdbcType=VARCHAR},
+            </if>
+            <if test="realName != null and realName != ''">
+                REAL_NAME=#{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="identyCardType != null">
+                IDENTY_CARD_TYPE=#{identyCardType,jdbcType=INTEGER},
+            </if>
+            <if test="identyCardNo != null and identyCardNo != ''">
+                IDENTY_CARD_NO=#{identyCardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="userMobile != null and userMobile != ''">
+                USER_MOBILE=#{userMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null and email != ''">
+                EMAIL=#{email,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                GENDER=#{gender,jdbcType=INTEGER},
+            </if>
+            <if test="birthday != null and birthday != ''">
+                BIRTHDAY=#{birthday,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                CITY=#{city,jdbcType=VARCHAR},
+            </if>
+            <if test="userPoint != null">
+                USER_POINT=#{userPoint,jdbcType=INTEGER},
+            </if>
+            <if test="registerTime != null">
+                REGISTER_TIME=#{registerTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="customerStatus != null">
+                CUSTOMER_STATUS = #{customerStatus,jdbcType=INTEGER},
+            </if>
+            <if test="isDel !=null">
+                IS_DEL = #{isDel,jdbcType=INTEGER},
+            </if>
+            <if test="customerLevel != null">
+                CUSTOMER_LEVEL=#{customerLevel,jdbcType=INTEGER},
+            </if>
+            <if test="userBalance != null">
+                USER_BALANCE=#{userBalance,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null and remark != ''">
+                REMARK=#{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="modifiedTime != null">
+                MODIFIED_TIME=#{modifiedTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        WHERE CUSTOMER_INF_ID = #{customerInfId,jdbcType=BIGINT}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT CUSTOMER_INF_ID, CUSTOMER_ID, CUSTOMER_NAME, REAL_NAME, IDENTY_CARD_TYPE, IDENTY_CARD_NO,
+    USER_MOBILE, EMAIL, GENDER, BIRTHDAY, CITY,USER_POINT, REGISTER_TIME, CUSTOMER_STATUS,
+    CUSTOMER_LEVEL, USER_BALANCE, IS_DEL, REMARK,MODIFIED_TIME
+    FROM C_CUSTOMER_INFO
+    WHERE CUSTOMER_INF_ID = #{customerInfId,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByCtmId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT CUSTOMER_INF_ID, CUSTOMER_ID, CUSTOMER_NAME, REAL_NAME, IDENTY_CARD_TYPE, IDENTY_CARD_NO,
+    USER_MOBILE, EMAIL, GENDER, BIRTHDAY, CITY, USER_POINT, REGISTER_TIME, CUSTOMER_STATUS,
+    CUSTOMER_LEVEL, USER_BALANCE, IS_DEL, REMARK, MODIFIED_TIME
+    FROM C_CUSTOMER_INFO INFO
+    WHERE CUSTOMER_ID = #{customerId,jdbcType=VARCHAR} ORDER BY MODIFIED_TIME DESC LIMIT 1
+   </select>
+</mapper>

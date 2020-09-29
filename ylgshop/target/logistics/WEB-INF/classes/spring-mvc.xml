@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                        http://www.springframework.org/schema/mvc
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+    <import resource="spring-shiro.xml"/>
+    <!-- 配置创建 spring 容器要扫描的包 -->
+    <context:component-scan base-package="com.goktech.olala" />
+    <!-- 注册freemarker配置类 -->
+    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <!-- html模版文件路径  -->
+        <property name="templateLoaderPath" value="/business/" />
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="xml_escape" value-ref="fmXmlEscape" />
+            </map>
+        </property>
+        <!-- 页面编码 -->
+        <property name="defaultEncoding" value="utf-8" />
+        <property name="freemarkerSettings">
+            <props>
+                <!-- 模版缓存刷新时间，不写单位默认为秒 -->
+                <prop key="template_update_delay">10</prop>
+                <!-- 时区 和 时间格式化 -->
+                <prop key="locale">zh_CN</prop>
+                <prop key="datetime_format">yyyy-MM-dd</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <!-- 数字使用.来分隔 -->
+                <prop key="number_format">#.##</prop>
+                <prop key="defaultEncoding">UTF-8</prop>
+                <!--解决空异常-->
+                <prop key="classic_compatible">true</prop>
+                <prop key="template_exception_handler">ignore</prop>
+                <!--用于支持key为non-string类型的map操作Map.get(Key)-->
+                <!--<prop key="object_wrapper">freemarker.ext.beans.BeansWrapper</prop>
+                <prop key="auto_import">common/common.ftl as s</prop>-->
+            </props>
+        </property>
+    </bean>
+
+    <!-- 配置视图解析器 -->
+    <bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <!-- 视图解析顺序，排在其他视图解析器之后 数字越大优先级越低 -->
+        <property name="order" value="2" />
+        <!-- 开启模版缓存 -->
+        <property name="cache" value="true" />
+        <!-- 上面已经配了，这里就不用配啦 -->
+        <property name="prefix" value="" />
+        <!-- 配置文件后缀 -->
+        <property name="suffix" value=".html" />
+        <property name="contentType" value="text/html;charset=UTF-8" />
+        <!-- 是否允许session属性覆盖模型数据,默认false -->
+        <property name="allowSessionOverride" value="false" />
+        <!-- 是否允许request属性覆盖模型数据,默认false -->
+        <property name="allowRequestOverride" value="false" />
+        <!-- 开启spring提供的宏帮助(macro) -->
+        <property name="exposeSpringMacroHelpers" value="true" />
+        <!-- 添加request attributes属性到ModelAndView中 -->
+        <property name="exposeRequestAttributes" value="true" />
+        <!-- 添加session attributes属性到ModelAndView中 -->
+        <property name="exposeSessionAttributes" value="true" />
+    </bean>
+
+    <!-- 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="utf-8" />
+        <!-- 文件大小最大值 -->
+        <property name="maxUploadSize" value="10485760000" />
+        <!-- 内存中的最大值 -->
+        <property name="maxInMemorySize" value="40960" />
+    </bean>
+
+    <!-- 开启spring注解支持 -->
+    <mvc:annotation-driven/>
+    <!-- 加载静态资源 -->
+    <mvc:resources location="/business/" mapping="/business/**"/>
+    <mvc:resources location="/backstage/" mapping="/backstage/**"/>
+    <mvc:resources location="/file/" mapping="/file/**"/>
+</beans>

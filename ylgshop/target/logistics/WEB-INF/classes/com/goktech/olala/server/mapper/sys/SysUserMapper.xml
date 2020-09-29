@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.sys.SysUserDao">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.sys.SysUser">
+    <id column="USER_ID" jdbcType="BIGINT" property="userId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="REAL_NAME" jdbcType="VARCHAR" property="realName" />
+    <result column="SALT" jdbcType="VARCHAR" property="salt" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    DELETE FROM SYS_USER
+    WHERE USER_ID = #{userId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.sys.SysUser"
+          useGeneratedKeys="true" keyProperty="userId" keyColumn="USER_ID">
+    INSERT INTO SYS_USER (USER_NAME, PASSWORD,
+    <if test="realName != null and realName != ''">
+      REAL_NAME,
+    </if>
+    <if test="email != null and email != ''">
+      EMAIL,
+    </if>
+    <if test="mobile != null and mobile != ''">
+      MOBILE,
+    </if>
+    <if test="deptName != null and deptName != ''">
+      DEPT_NAME,
+    </if>
+    <if test="remark != null and remark != ''">
+      REMARK,
+    </if>
+    SALT, STATUS, CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY)
+    VALUES (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    <if test="realName != null and realName != ''">
+      #{realName,jdbcType=VARCHAR},
+    </if>
+    <if test="email != null and email != ''">
+      #{email,jdbcType=VARCHAR},
+    </if>
+    <if test="mobile != null and mobile != ''">
+      #{mobile,jdbcType=VARCHAR},
+    </if>
+    <if test="deptName != null and deptName != ''">
+      #{deptName,jdbcType=VARCHAR},
+    </if>
+    <if test="remark != null and remark != ''">
+      #{remark,jdbcType=VARCHAR},
+    </if>
+    #{salt,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP},
+    #{createBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.sys.SysUser">
+    UPDATE SYS_USER
+    <set>
+      <if test="userName != null and userName != ''">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null and password != ''">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null and realName != ''">
+        REAL_NAME = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null and salt != ''">
+        SALT = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null and email != ''">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null and mobile != ''">
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="deptName != null and deptName != ''">
+        DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null and remark != ''">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    </set>
+    WHERE user_id = #{userId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT USER_ID, USER_NAME, PASSWORD, REAL_NAME, SALT, EMAIL, MOBILE, STATUS, DEPT_NAME, REMARK,
+    CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY
+    FROM SYS_USER
+    WHERE USER_ID = #{userId,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByUser" resultMap="BaseResultMap">
+    SELECT USER_ID, USER_NAME, PASSWORD, REAL_NAME, SALT, EMAIL, MOBILE, STATUS, DEPT_NAME,
+    CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY
+    FROM SYS_USER
+    <where>
+      <if test="userId != null">
+        AND USER_ID = #{userId}
+      </if>
+      <if test="userName != null and userName != ''">
+        AND USER_NAME = #{userName}
+      </if>
+      <if test="password != null and password != ''">
+        AND PASSWORD = #{password}
+      </if>
+    </where>
+  </select>
+</mapper>

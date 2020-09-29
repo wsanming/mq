@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.sys.SysUserRoleDao">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.sys.SysUserRole">
+    <id column="UR_ID" jdbcType="BIGINT" property="urId" />
+    <result column="USER_ID" jdbcType="BIGINT" property="userId" />
+    <result column="ROLE_ID" jdbcType="BIGINT" property="roleId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from SYS_USER_ROLE
+    where UR_ID = #{urId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.sys.SysUserRole">
+    insert into SYS_USER_ROLE (UR_ID, USER_ID, ROLE_ID
+      )
+    values (#{urId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.sys.SysUserRole">
+    update SYS_USER_ROLE
+    set USER_ID = #{userId,jdbcType=BIGINT},
+      ROLE_ID = #{roleId,jdbcType=BIGINT}
+    where UR_ID = #{urId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select UR_ID, USER_ID, ROLE_ID
+    from SYS_USER_ROLE
+    where UR_ID = #{urId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select UR_ID, USER_ID, ROLE_ID
+    from SYS_USER_ROLE
+  </select>
+</mapper>

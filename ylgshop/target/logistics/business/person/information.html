@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+
+		<title>个人资料</title>
+
+		<link href="/olalashop/business/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+		<link href="/olalashop/business/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="/olalashop/business/css/personal.css" rel="stylesheet" type="text/css">
+		<link href="/olalashop/business/css/infstyle.css" rel="stylesheet" type="text/css">
+
+		<script src="/olalashop/business/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="/olalashop/business/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+	</head>
+
+	<body>
+		<!-- 使用person文件夹下的header.html-->
+		<header>
+			<#include "person/header.html">
+		</header>
+
+		<div class="nav-table"></div>
+		<b class="line"></b>
+		<div class="center">
+			<div class="col-main">
+				<div class="main-wrap">
+
+					<div class="user-info">
+						<!--标题 -->
+						<div class="am-cf am-padding">
+							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> / <small>Personal&nbsp;information</small></div>
+						</div>
+						<hr/>
+						<!--头像 -->
+						<div class="user-infoPic">
+							<div class="filePic">
+								<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
+								<img class="am-circle am-img-thumbnail" src="/olalashop/business/images/getAvatar.do.jpg" alt="" />
+							</div>
+
+							<p class="am-form-help">头像</p>
+
+							<div class="info-m">
+								<div><b>用户名：<i>
+											${LoginUserInfo.customerName}
+										</i></b></div>
+								<div class="vip">
+                                      <span></span><a href="#">会员专享</a>
+								</div>
+							</div>
+						</div>
+
+						<!--个人信息 -->
+						<div class="info-main">
+							<form class="am-form am-form-horizontal" method="post" action="/olalashop/cntApi/updateUserInfo.do">
+
+								<div class="am-form-group">
+									<label for="user-name2" class="am-form-label" >昵称</label>
+									<div class="am-form-content">
+										<input type="text"name="ctm_name" id="user-name2" placeholder="nickname" value="${LoginUserInfo.customerName}">
+                                          <small>昵称长度不能超过40个汉字</small>
+									</div>
+								</div>
+
+								<div class="am-form-group">
+									<label for="user-name" class="am-form-label">姓名</label>
+									<div class="am-form-content">
+										<input type="text" name="r_name" id="user-name" placeholder="name" value="${LoginUserInfo.realName}">
+                                         
+									</div>
+								</div>
+
+								<div class="am-form-group">
+									<label class="am-form-label">性别</label>
+									<div class="am-form-content sex">
+										<label class="am-radio-inline">
+											<input type="radio" name="radio10" <#if (LoginUserInfo.gender == 2)> checked </#if> value="2" data-am-ucheck> 男
+										</label>
+										<label class="am-radio-inline">
+											<input type="radio" name="radio10" <#if (LoginUserInfo.gender == 1)> checked </#if> value="1" data-am-ucheck> 女
+										</label>
+										<label class="am-radio-inline">
+											<input type="radio" name="radio10" <#if (LoginUserInfo.gender == 0)> checked </#if> value="0" data-am-ucheck> 保密
+										</label>
+
+									</div>
+								</div>
+								<body onLoad="init()">
+								<div class="am-form-group">
+									<label class="am-form-label">生日</label>
+									<div class="am-form-content birth">
+										<div class="birth-select">
+											<select id="year" name="year" onChange="swap_day()" >
+											</select>
+											<em>年</em>
+										</div>
+										<div class="birth-select2">
+											<select  id="month" name="month" onChange="swap_day()">
+
+											</select>
+											<em>月</em></div>
+										<div class="birth-select2">
+											<select  id="day" name="day">
+
+											</select>
+											<em>日</em></div>
+									</div>
+
+								</div>
+								</body>
+								<div class="am-form-group">
+									<label for="user-phone" class="am-form-label">电话</label>
+									<div class="am-form-content">
+										<input id="user-phone" name="user-phone" placeholder="telephonenumber" type="tel" value="${LoginUserInfo.userMobile}">
+
+									</div>
+								</div>
+								<div class="am-form-group">
+									<label for="user-email" class="am-form-label">电子邮件</label>
+									<div class="am-form-content">
+										<input id="user-email" name="user-email" placeholder="Email" type="email" value="${LoginUserInfo.email}">
+
+									</div>
+								</div>
+								<div class="am-form-group address">
+									<label class="am-form-label">收货地址</label>
+									<div class="am-form-content address">
+										<a href="address.html">
+											<p class="new-mu_l2cw">
+												<span class="province">湖北</span>省
+												<span class="city">武汉</span>市
+												<span class="dist">洪山</span>区
+												<span class="street">雄楚大道666号(中南财经政法大学)</span>
+												<span class="am-icon-angle-right"></span>
+											</p>
+										</a>
+
+									</div>
+								</div>
+								<div class="am-form-group safety">
+									<label class="am-form-label">账号安全</label>
+									<div class="am-form-content safety">
+										<a href="safety.html">
+
+											<span class="am-icon-angle-right"></span>
+
+										</a>
+
+									</div>
+								</div>
+								<div class="info-btn">
+									<input type="submit" value="保存修改" onclick="preservation()" class="am-btn am-btn-danger">
+								</div>
+
+							</form>
+						</div>
+
+					</div>
+
+				</div>
+				<!--底部-->
+				<div class="footer"></div>
+			</div>
+			<aside class="menu"></aside>
+		</div>
+	</body>
+	<script>
+		$(function () {
+			$(".nav-table").load("/olalashop/business/person/nav.html");
+			$("div.footer").load("/olalashop/business/home/footer.html");
+			$("aside").load("/olalashop/business/home/aside.html");
+		})
+	</script>
+	<script>
+		var month_big = new Array("01","03","05","07","08","10","12"); //包含所有大月的数组
+		var month_small = new Array("04","06","09","11"); //包含所有小月的数组
+
+		//页面加载时调用的初始化select控件的option的函数
+		function init()
+		{
+			var select_year = document.getElementById("year"); //获取id为"year"的下拉列表框
+			var select_month = document.getElementById("month"); //获取id为"month"的下拉列表框
+			var select_day = document.getElementById("day"); //获取id为"day"的下拉列表框
+
+			//将年份选项初始化，从1980到2000
+			for(var i = 1900; i <= 2020; i++)
+			{
+				select_year_option = new Option(i, i);
+				select_year.options.add(select_year_option);
+			}
+
+			//将月份选项初始化，从1到12
+			for(var i = 1; i <= 12; i++)
+			{
+				select_month_option = new Option(i, i);
+				select_month.options.add(select_month_option);
+			}
+
+			//调用swap_day函数初始化日期
+			swap_day();
+
+			document.getElementById("year").value = "${birthdayOfYear}";
+			document.getElementById("month").value = "${birthdayOfMonth}";
+			document.getElementById("day").value = "${birthdayOfDay}";
+		}
+		//判断数组array中是否包含元素obj的函数，包含则返回true，不包含则返回false
+		function array_contain(array, obj)
+		{
+			for (var i = 0; i < array.length; i++)
+			{
+				if (array[i] === obj)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		//根据年份和月份调整日期的函数
+		function swap_day()
+		{
+			var select_year = document.getElementById("year"); //获取id为"year"的下拉列表框
+			var select_month = document.getElementById("month"); //获取id为"month"的下拉列表框
+			var select_day = document.getElementById("day"); //获取id为"day"的下拉列表框
+
+			select_day.options.length = 0; //在调整前先清空日期选项里面的原有选项
+			var month = select_month.options[select_month.selectedIndex].value; //获取被选中的月份month
+
+			//如果month被包含在month_big数组中，即被选中月份是大月，则将日期选项初始化为31天
+			if(array_contain(month_big, month))
+			{
+				for(var i = 1; i <= 31; i++)
+				{
+					select_day_option = new Option(i, i);
+					select_day.options.add(select_day_option);
+				}
+			}
+
+			//如果month被包含在month_small数组中，即被选中月份是小月，则将日期选项初始化为30天
+			else if(array_contain(month_small, month))
+			{
+				for(var i = 1; i <= 30; i++)
+				{
+					select_day_option = new Option(i, i);
+					select_day.options.add(select_day_option);
+				}
+			}
+
+			//如果month为2，即被选中的月份是2月，则调用initFeb()函数来初始化日期选项
+			else
+			{
+				initFeb();
+			}
+		}
+		//判断年份year是否为闰年，是闰年则返回true，否则返回false
+		function isLeapYear(year)
+		{
+			var a = year % 4;
+			var b = year % 100;
+			var c = year % 400;
+			if( ( (a == 0) && (b != 0) ) || (c == 0) )
+			{
+				return true;
+			}
+			return false;
+		}
+
+		//根据年份是否闰年来初始化二月的日期选项
+		function initFeb()
+		{
+			var select_year = document.getElementById("year"); //获取id为"year"的下拉列表框
+			var select_day = document.getElementById("day"); //获取id为"day"的下拉列表框
+			var year = parseInt(select_year.options[select_year.selectedIndex].value); //获取被选中的年份并转换成Int
+
+			//如果是闰年，则将日期选项初始化为29天
+			if(isLeapYear(year))
+			{
+				for(var i = 1; i <= 29; i++)
+				{
+					select_day_option = new Option(i, i);
+					select_day.options.add(select_day_option);
+				}
+			}
+
+			//如果不是闰年，则将日期选项初始化为28天
+			else
+			{
+				for(var i = 1; i <= 28; i++)
+				{
+					select_day_option = new Option(i, i);
+					select_day.options.add(select_day_option);
+				}
+			}
+		}
+
+		function preservation() {
+			$.ajax({
+
+			});
+
+		}
+
+
+	</script>
+</html>

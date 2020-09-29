@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--自定义权限认证-->
+    <bean id="authRealm" class="com.goktech.olala.core.config.AuthRealm">
+        <!--自定义密码加密算法  -->
+        <!--<property name="credentialsMatcher" ref="passwordMatcher"/>-->
+        <!--<property name="roleDao" ref="roleDao"/>-->
+        <!--<property name="permissionDao" ref="permissionDao"/>-->
+    </bean>
+
+    <!-- 设置密码加密策略 md5hash -->
+    <!--<bean id="passwordMatcher" class="com.fyh.www.shiro.CustomCredentialsMatcher"/>-->
+
+    <!-- 配置权限管理器(核心) -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!-- 我们自定义的realm -->
+        <property name="realm" ref="authRealm"/>
+        <!-- 缓存管理器 -->
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+
+    <!-- 此bean要被web.xml引用,和web.shiroFilter -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 权限管理器 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 登录页面 -->
+        <property name="loginUrl" value="/backstage/login.html"/>
+        <!-- 登录后跳转到业务页面 -->
+        <property name="successUrl" value="/backstage/index.html"/>
+        <!-- 授权不通过页面 -->
+        <property name="unauthorizedUrl" value="/backstage/login.html"/>
+        <!-- shiro URL控制过滤器规则 -->
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- 匿名登录请求 -->
+                /index/*.do = anon
+                /business/home/** = anon
+                /business/person/** = anon
+                <!-- **代表任意子目录 -->
+                /business/AmazeUI-2.4.2/**=anon
+                /business/css/** = anon
+                /business/images/** = anon
+                /business/js/** = anon
+                /business/resource/** = anon
+                <!-- 需要权限的用户才能访问此请求-->
+                /backstage/lib/** = anon
+                /backstage/static/** = anon
+                /backstage/temp/** = anon
+                /backstage/resource/** = anon
+                <!-- 登陆允许访问-->
+                /sysAccountApi/login.do = anon
+                /backstage/login.html = anon
+                /file/images/** = anon
+                <!-- 需要管理员角色才能访问此页面 -->
+                <!--                /user/edit=roles[admin]-->
+                <!--拦截非静态资源的所有请求-->
+                <!--/** = authc-->
+                <!--authc:确保已认证的用户发送的请求才能通过（若未认证，则跳转到登录页面）-->
+            </value>
+        </property>
+    </bean>
+    <!-- 用户授权/认证信息Cache, 采用EhCache  缓存 -->
+    <!--<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">-->
+    <!--<property name="cacheManagerConfigFile" value="classpath:ehcache-shiro.xml"/>-->
+    <!--</bean>-->
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <!-- 安全管理器 -->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    <!--启用Shiro相关的注解-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+</beans>

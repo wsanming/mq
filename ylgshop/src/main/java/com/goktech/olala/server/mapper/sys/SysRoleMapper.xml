@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.sys.SysRoleDao">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.sys.SysRole">
+    <id column="ROLE_ID" jdbcType="BIGINT" property="roleId" />
+    <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from SYS_ROLE
+    where ROLE_ID = #{roleId,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.sys.SysRole" useGeneratedKeys="true" keyProperty="roleId" keyColumn="ROLE_ID">
+    insert into SYS_ROLE (ROLE_NAME,
+      <if test="deptName != null and deptName != ''">
+        DEPT_NAME,
+      </if>
+      <if test="remark != null and remark != ''">
+        REMARK,
+      </if>
+        CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY)
+    values (#{roleName,jdbcType=VARCHAR},
+      <if test="deptName != null and deptName != ''">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null and remark != ''">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+        #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR},
+        #{updateTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.sys.SysRole">
+    update SYS_ROLE
+    <set>
+      <if test="roleName != null and roleName != ''">
+        ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null and deptName != ''">
+        DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null and remark != ''">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{updateBy,jdbcType=VARCHAR}
+    </set>
+    where ROLE_ID = #{roleId,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ROLE_ID, ROLE_NAME, REMARK, DEPT_NAME, CREATE_TIME, CREATE_BY, UPDATE_TIME,
+    UPDATE_BY
+    from SYS_ROLE
+    where ROLE_ID = #{roleId,jdbcType=BIGINT}
+  </select>
+
+</mapper>

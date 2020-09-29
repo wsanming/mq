@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.sys.SysDictDao">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.sys.SysDict">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="VALUE" jdbcType="VARCHAR" property="value" />
+    <result column="KEYWORD" jdbcType="VARCHAR" property="keyword" />
+    <result column="UP_ID" jdbcType="INTEGER" property="upId" />
+    <result column="DIC_TYPE" jdbcType="VARCHAR" property="dicType" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="OPERATOR_ID" jdbcType="VARCHAR" property="operatorId" />
+    <result column="OPERATOR_NAME" jdbcType="VARCHAR" property="operatorName" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    DELETE FROM SYS_DICT
+    WHERE ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.sys.SysDict">
+    INSERT INTO SYS_DICT (ID, VALUE, KEYWORD,
+      UP_ID, DIC_TYPE, STATUS,
+      OPERATOR_ID, OPERATOR_NAME, CREATE_TIME
+      )
+    VALUES (#{id,jdbcType=BIGINT}, #{value,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR},
+      #{upId,jdbcType=INTEGER}, #{dicType,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{operatorId,jdbcType=VARCHAR}, #{operatorName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.sys.SysDict">
+    UPDATE SYS_DICT
+    SET VALUE = #{value,jdbcType=VARCHAR},
+      KEYWORD = #{keyword,jdbcType=VARCHAR},
+      UP_ID = #{upId,jdbcType=INTEGER},
+      DIC_TYPE = #{dicType,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      OPERATOR_ID = #{operatorId,jdbcType=VARCHAR},
+      OPERATOR_NAME = #{operatorName,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT ID, VALUE, KEYWORD, UP_ID, DIC_TYPE, STATUS, OPERATOR_ID, OPERATOR_NAME, CREATE_TIME
+    FROM SYS_DICT
+    WHERE ID = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT ID, VALUE, KEYWORD, UP_ID, DIC_TYPE, STATUS, OPERATOR_ID, OPERATOR_NAME, CREATE_TIME
+    FROM SYS_DICT
+  </select>
+</mapper>
