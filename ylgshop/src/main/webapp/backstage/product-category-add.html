@@ -23,19 +23,36 @@
 </head>
 <body>
 <div class="page-container">
-	<form action="" method="post" class="form form-horizontal" id="form-user-add">
+	<form action="" method="post" class="form form-horizontal" id="form-category-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">
 				<span class="c-red">*</span>
 				分类名称：</label>
 			<div class="formControls col-xs-6 col-sm-6">
-				<input type="text" class="input-text" value="" placeholder="" id="user-name" name="product-category-name">
+				<input type="text" class="input-text" value="" placeholder="" id="product-category-name" name="categoryName">
+				<input type="hidden" class="input-text" value="" placeholder="" id="product-category-id" name="categoryId">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">
+				<span class="c-red">*</span>
+				关键字：</label>
+			<div class="formControls col-xs-6 col-sm-6">
+				<input type="text" class="input-text" value="" placeholder="" id="category-keywords" name="keywords">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">
+				<span class="c-red">*</span>
+				排序值：</label>
+			<div class="formControls col-xs-6 col-sm-6">
+				<input type="text" class="input-text" value="" placeholder="" id="sort-orl" name="sortOrl">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">备注：</label>
 			<div class="formControls col-xs-6 col-sm-6">
-				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea id="product-category-desc" name="catyDesc" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>
@@ -58,8 +75,93 @@
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
-	
+	var categoryId = getParamForUrl("id");
+	var categoryName = getParamForUrl("name");
+	var keywords = getParamForUrl("keywords");
+	var sortOrl = getParamForUrl("sortOrl");
+	var desc = getParamForUrl("desc");
+
+	if(categoryName != "" && categoryName != undefined && categoryName != 'undefined'){
+		$("#product-category-name").val(unescape(categoryName));
+	}
+	if(desc != "" && desc != undefined && desc != 'undefined'){
+		$("#product-category-desc").val(unescape(desc));
+	}
+	$("#product-category-id").val(categoryId);
+	$("#category-keywords").val(keywords);
+	$("#sort-orl").val(sortOrl);
+
+	$("#form-category-add").validate({
+		rules:{
+			categoryName:{
+				required:true,
+				minlength:2,
+				maxlength:50
+			}
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			var index = parent.layer.getFrameIndex(window.name);
+			$(form).ajaxSubmit({
+				type: 'post',
+				url: '../categoryApi/saveCategory.do',
+				async:true,
+				data:{
+					params:JSON.stringify($(form).serializeObject())
+				},
+				success:function(data){
+					if(data.respData.respCode == 10000){
+						if(data.respData.result == 1){
+							layer.msg('信息保存成功!',{icon: 6,time:2000});
+							parent.location.reload();
+						}else{
+							layer.msg('信息保存失败!',{icon: 6,time:2000});
+						}
+
+					}else{
+						layer.msg(data.respData.respMsg,{icon: 6,time:2000});
+					}
+				},
+				error:function(data){
+					layer.msg('服务异常，请联系管理员处理!',{icon: 6,time:3000});
+					// parent.layer.close(index);
+				}
+			});
+		}
+	});
 });
+
+$.fn.serializeObject = function() {
+	var o = {};
+	var a = this.serializeArray();
+	$.each(a, function() {
+		if (o[this.name]) {
+			if (!o[this.name].push) {
+				o[this.name] = [o[this.name]];
+			}
+			o[this.name].push(this.value || '');
+		} else {
+			o[this.name] = this.value || '';
+		}
+	});
+	return o;
+};
+
+function getParamForUrl(param) {
+	var url = location.href;
+	var i=url.indexOf('?');
+	if(i==-1)return;
+	var querystr=url.substr(i+1);
+	var arr1=querystr.split('&');
+	var arr2 = new Object();
+	for  (i in arr1){
+		var ta=arr1[i].split('=');
+		arr2[ta[0]]=ta[1];
+	}
+	return arr2[param];
+}
 </script>
 </body>
 </html>

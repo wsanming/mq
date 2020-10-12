@@ -10,6 +10,7 @@ import com.goktech.olala.core.config.SysConfig;
 import com.goktech.olala.core.req.ReqArticle;
 import com.goktech.olala.core.resp.RespArticleVo;
 import com.goktech.olala.core.service.ICtmIndexService;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
