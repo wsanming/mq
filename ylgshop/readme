@@ -1,0 +1,9 @@
+git源码地址：git@codehub-cn-east-2.devcloud.huaweicloud.com:B2C_ESS00001/olalashop.git
+前站入口：http://47.93.253.78:8080/olalashop/index/init.do
+后台地址：http://47.93.253.78:8080/olalashop/backstage/login.html
+后台管理员账号
+admin
+admin123
+
+数据库初始化sql
+  ------ init.sql
