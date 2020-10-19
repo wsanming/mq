@@ -6,22 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81d88ce3-b98e-47bf-9799-45074c7e8526" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ylgshop_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ylgshop_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ylgshop/readme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MQ.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MQ.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/classes/META-INF/ylgshop.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/client/controller/sys/SysAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/client/controller/sys/SysAccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/client/controller/sys/SysAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/client/controller/sys/SysAccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/ylgshop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/ylgshop.iml" afterDir="false" />
-    </list>
+    <list default="true" id="81d88ce3-b98e-47bf-9799-45074c7e8526" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,6 +54,11 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\84165\Desktop\project\mq\ylgshop" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 8.5.47" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.47" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="8" nameIsGenerated="true">
@@ -186,12 +176,24 @@
       <workItem from="1603077912519" duration="182000" />
       <workItem from="1603078103151" duration="70000" />
       <workItem from="1603078212732" duration="347000" />
-      <workItem from="1603078626313" duration="662000" />
+      <workItem from="1603078626313" duration="902000" />
     </task>
+    <task id="LOCAL-00001" summary="添加readme">
+      <created>1603079370157</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603079370157</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加readme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603078785794">
@@ -202,61 +204,69 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="506" y="250" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1603074284181" />
+    <state x="185" y="0" key="CommitChangelistDialog2" timestamp="1603080009783">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="185" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1603080009783" />
     <state x="413" y="66" key="FileChooserDialogImpl" timestamp="1603079102587">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="66" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603079102587" />
-    <state width="892" height="382" key="GridCell.Tab.0.bottom" timestamp="1603079019177">
+    <state width="892" height="382" key="GridCell.Tab.0.bottom" timestamp="1603079536956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603079019177" />
-    <state width="892" height="382" key="GridCell.Tab.0.center" timestamp="1603079019176">
+    <state width="892" height="382" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
+    <state width="892" height="382" key="GridCell.Tab.0.center" timestamp="1603079536955">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603079019176" />
-    <state width="892" height="382" key="GridCell.Tab.0.left" timestamp="1603079019175">
+    <state width="892" height="382" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603079536955" />
+    <state width="892" height="382" key="GridCell.Tab.0.left" timestamp="1603079536955">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603079019175" />
-    <state width="892" height="382" key="GridCell.Tab.0.right" timestamp="1603079019176">
+    <state width="892" height="382" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603079536955" />
+    <state width="892" height="382" key="GridCell.Tab.0.right" timestamp="1603079536956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603079019176" />
-    <state width="892" height="382" key="GridCell.Tab.1.bottom" timestamp="1603079019177">
+    <state width="892" height="382" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
+    <state width="892" height="382" key="GridCell.Tab.1.bottom" timestamp="1603079536956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603079019177" />
-    <state width="892" height="382" key="GridCell.Tab.1.center" timestamp="1603079019177">
+    <state width="892" height="382" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
+    <state width="892" height="382" key="GridCell.Tab.1.center" timestamp="1603079536956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1603079019177" />
-    <state width="892" height="382" key="GridCell.Tab.1.left" timestamp="1603079019177">
+    <state width="892" height="382" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
+    <state width="892" height="382" key="GridCell.Tab.1.left" timestamp="1603079536956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1603079019177" />
-    <state width="892" height="382" key="GridCell.Tab.1.right" timestamp="1603079019177">
+    <state width="892" height="382" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
+    <state width="892" height="382" key="GridCell.Tab.1.right" timestamp="1603079536956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1603079019177" />
-    <state width="892" height="382" key="GridCell.Tab.2.bottom" timestamp="1603079019178">
+    <state width="892" height="382" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
+    <state width="892" height="382" key="GridCell.Tab.2.bottom" timestamp="1603079536957">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603079019178" />
-    <state width="892" height="382" key="GridCell.Tab.2.center" timestamp="1603079019178">
+    <state width="892" height="382" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603079536957" />
+    <state width="892" height="382" key="GridCell.Tab.2.center" timestamp="1603079536957">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1603079019178" />
-    <state width="892" height="382" key="GridCell.Tab.2.left" timestamp="1603079019178">
+    <state width="892" height="382" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1603079536957" />
+    <state width="892" height="382" key="GridCell.Tab.2.left" timestamp="1603079536956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1603079019178" />
-    <state width="892" height="382" key="GridCell.Tab.2.right" timestamp="1603079019178">
+    <state width="892" height="382" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
+    <state width="892" height="382" key="GridCell.Tab.2.right" timestamp="1603079536957">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1603079019178" />
+    <state width="892" height="382" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1603079536957" />
     <state x="71" y="0" key="SettingsEditor" timestamp="1603078422051">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="71" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603078422051" />
+    <state x="175" y="36" key="Vcs.Push.Dialog.v2" timestamp="1603079450241">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="175" y="36" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603079450241" />
   </component>
 </project>

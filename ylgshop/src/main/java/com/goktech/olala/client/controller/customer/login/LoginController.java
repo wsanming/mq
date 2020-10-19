@@ -48,7 +48,8 @@ public class LoginController {
             String md5Pwd = MD5Util.md5(password);
             RespCtmLogin respCtmLogin = iCtmInfoService.queryCmtInfoForLogin(userName, md5Pwd);
             if (respCtmLogin == null) {
-                msg = SysConfig.ERROR_CODE_STR;//失败
+                //失败
+                msg = SysConfig.ERROR_CODE_STR;
             } else {
                 String customerName = respCtmLogin.getCustomerName();
                 String userId = respCtmLogin.getCustomerId();
@@ -62,8 +63,8 @@ public class LoginController {
                 reqCtmLogin.setLoginIp(request.getRemoteAddr());
                 reqCtmLogin.setLoginType(1);
                 iCtmInfoService.saveLoginLog(reqCtmLogin);
-
-                msg = SysConfig.SUCCESS_CODE_STR;//成功
+                //成功
+                msg = SysConfig.SUCCESS_CODE_STR;
             }
         } catch (Exception e) {
             e.printStackTrace();
