@@ -18,8 +18,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * @author sanming
  * @Classname LoginController
- * @Description TODO 登录、注册、退出登录
+ * @Description 登录、注册、退出登录
  * @Date 2020/9/29 13:56
  * @Created by sanming
  */
@@ -32,6 +33,7 @@ public class LoginController {
 
     /**
      * 前台登录逻辑
+     *
      * @param userName
      * @param password
      * @param request
@@ -48,7 +50,7 @@ public class LoginController {
             String md5Pwd = MD5Util.md5(password);
             RespCtmLogin respCtmLogin = iCtmInfoService.queryCmtInfoForLogin(userName, md5Pwd);
             if (respCtmLogin == null) {
-                //失败
+                //登录失败
                 msg = SysConfig.ERROR_CODE_STR;
             } else {
                 String customerName = respCtmLogin.getCustomerName();
@@ -56,21 +58,19 @@ public class LoginController {
                 //登录信息放置session中
                 request.getSession().setAttribute("LoginUserId", userId);
                 request.getSession().setAttribute("LoginUserName", customerName);
-
                 //保存登录日志
                 ReqCtmLogin reqCtmLogin = new ReqCtmLogin();
                 reqCtmLogin.setCustomerId(userId);
                 reqCtmLogin.setLoginIp(request.getRemoteAddr());
                 reqCtmLogin.setLoginType(1);
                 iCtmInfoService.saveLoginLog(reqCtmLogin);
-                //成功
+                //登录成功
                 msg = SysConfig.SUCCESS_CODE_STR;
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            return msg;
         }
+        return msg;
     }
 
 
@@ -96,7 +96,8 @@ public class LoginController {
         try {
             RespCtmInfo respCtmInfo = iCtmInfoService.checkUser(mobile, email);
             if (respCtmInfo == null) {
-                msg = "2";//允许注册
+                //允许注册
+                msg = SysConfig.REGISTER_ALLOW;
                 ReqCtmInfo reqCtmInfo = new ReqCtmInfo();
                 reqCtmInfo.setCustomerName(StringUtils.isBlank(mobile) ? email : mobile);
                 reqCtmInfo.setPassword(password);
@@ -112,7 +113,7 @@ public class LoginController {
                     request.getSession().setAttribute("LoginUserName", userLoginVo.getCustomerName());
                 }
             } else {
-                msg = "1";
+                msg = SysConfig.REGISTER_REJECT;
                 return msg;
             }
 
@@ -138,7 +139,7 @@ public class LoginController {
             request.getSession().removeAttribute("LoginUserName");
             request.getSession().removeAttribute("LoginUserId");
             //逻辑正确，附上10000
-            msg = "10000";
+            msg = SysConfig.SUCCESS_CODE_STR;
         } catch (Exception e) {
             e.printStackTrace();
         }

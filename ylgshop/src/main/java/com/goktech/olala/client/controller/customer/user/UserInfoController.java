@@ -19,8 +19,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * @author sanming
  * @Classname UserInfoController
- * @Description TODO 个人资料、我的交易、我的资产、我的收藏。
+ * @Description  个人资料、我的交易、我的资产、我的收藏。
  * @Date 2020/9/29 13:59
  * @Created by sanming
  */
@@ -52,7 +53,8 @@ public class UserInfoController {
         }
         CtmInfo userInfo = iCtmInfoService.queryCustomerIdById(LoginUserId);
         /*对前端页面日期格式进行拆分*/
-        String birthday = userInfo.getBirthday();//生日
+        //生日
+        String birthday = userInfo.getBirthday();
         if(StringUtils.isNotBlank(birthday)){
             Date d1 = new SimpleDateFormat("yyyy-MM-dd").parse(birthday);
             SimpleDateFormat sdf0 = new SimpleDateFormat("yyyy");
@@ -105,7 +107,8 @@ public class UserInfoController {
         info.setUserMobile(request.getParameter("user-phone"));
         info.setEmail(request.getParameter("user-email"));
         /*修改时间*/
-        Timestamp createTime = new Timestamp(new Date().getTime());
+        // Timestamp createTime = new Timestamp(new Date().getTime());
+        Timestamp createTime = new Timestamp(System.currentTimeMillis());
         info.setModifiedTime(createTime);
         iCtmInfoService.updateCustomerInfoByCtmId(info);
         response.sendRedirect("/olalashop/cntApi/info.do");
