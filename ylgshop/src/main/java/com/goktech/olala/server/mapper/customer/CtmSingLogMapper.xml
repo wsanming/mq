@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmSingLogMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmSingLog">
+    <result column="SIGN_ID" jdbcType="BIGINT" property="signId" />
+    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
+    <result column="MARK" jdbcType="VARCHAR" property="mark" />
+    <result column="SIGN_COUNT" jdbcType="INTEGER" property="count" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="CONTINUE_SIGN" jdbcType="INTEGER" property="continueSign" />
+    <result column="BANK_1" jdbcType="VARCHAR" property="bank1" />
+    <result column="BANL_2" jdbcType="VARCHAR" property="banl2" />
+  </resultMap>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmSingLog">
+    INSERT INTO C_SIGN_LOG (SIGN_ID, CUSTOMER_ID, MARK,
+      COUNT, CREATE_TIME, UPDATE_TIME, 
+      CONTINUE_SIGN, BANK_1, BANL_2
+      )
+    VALUES (#{signId,jdbcType=BIGINT}, #{customerId,jdbcType=VARCHAR}, #{mark,jdbcType=VARCHAR},
+      #{count,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{continueSign,jdbcType=INTEGER}, #{bank1,jdbcType=VARCHAR}, #{banl2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT SIGN_ID, CUSTOMER_ID, MARK, SIGN_COUNT, CREATE_TIME, UPDATE_TIME, CONTINUE_SIGN,
+    BANK_1, BANL_2
+    FROM C_SIGN_LOG
+  </select>
+
+  <select id="querySignInfoById" resultMap="BaseResultMap">
+    SELECT SIGN_ID, CUSTOMER_ID, MARK, SIGN_COUNT, CREATE_TIME, UPDATE_TIME, CONTINUE_SIGN,
+    BANK_1, BANL_2
+    FROM C_SIGN_LOG
+    WHERE CUSTOMER_ID = #{customerId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="querySignById" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT CUSTOMER_ID
+    FROM C_SIGN_LOG
+    WHERE CUSTOMER_ID = #{customerId,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insertSignInfo" parameterType="com.goktech.olala.server.pojo.customer.CtmSingLog">
+    INSERT INTO C_SIGN_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        CUSTOMER_ID,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="count != null">
+        SIGN_COUNT,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="continueSign != null">
+        CONTINUE_SIGN,
+      </if>
+      <if test="bank1 != null">
+        BANK_1,
+      </if>
+      <if test="banl2 != null">
+        BANL_2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="continueSign != null">
+        #{continueSign,jdbcType=INTEGER},
+      </if>
+      <if test="bank1 != null">
+        #{bank1,jdbcType=VARCHAR},
+      </if>
+      <if test="banl2 != null">
+        #{banl2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+
+  </insert>
+
+  <!--通过用户id和desc签到备注查询时间-->
+  <select id="SelectTimeByID" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT UPDATE_TIME
+    FROM C_SIGN_LOG
+    WHERE CUSTOMER_ID = #{customerId,jdbcType=VARCHAR}
+  </select>
+
+<!--修改签到信息-->
+  <update id="updateSignInfo" parameterType="com.goktech.olala.server.pojo.customer.CtmSingLog">
+    UPDATE C_SIGN_LOG
+    <set>
+      <if test="customerId != null">
+        CUSTOMER_ID=#{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        MARK=#{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        SIGN_COUNT=#{count,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="continueSign != null">
+        CONTINUE_SIGN=#{continueSign,jdbcType=INTEGER},
+      </if>
+      <if test="bank1 != null">
+        BANK_1=#{bank1,jdbcType=VARCHAR},
+      </if>
+      <if test="banl2 != null">
+        BANL_2=#{banl2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    WHERE CUSTOMER_ID=#{customerId,jdbcType=VARCHAR}
+  </update>
+
+</mapper>

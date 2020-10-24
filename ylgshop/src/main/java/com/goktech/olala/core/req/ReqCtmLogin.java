@@ -1,5 +1,8 @@
 package com.goktech.olala.core.req;
 
+/**
+ * @author sanming
+ */
 public class ReqCtmLogin {
 
     private String customerId;

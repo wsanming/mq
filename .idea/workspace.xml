@@ -10,15 +10,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81d88ce3-b98e-47bf-9799-45074c7e8526" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/client/controller/customer/assets/AssetsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/mapper/customer/CtmPointLogMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/mapper/customer/CtmSingLogMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/client/controller/customer/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/client/controller/customer/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/client/controller/customer/user/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/client/controller/customer/user/UserInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/core/config/SysConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/core/config/SysConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/core/req/ReqCtmLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/core/req/ReqCtmLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/webapp/business/person/points.html" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/webapp/business/person/points.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/client/controller/customer/login/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/client/controller/customer/login/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/client/controller/customer/user/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/client/controller/customer/user/UserInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/core/config/SysConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/core/config/SysConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/core/req/ReqCtmLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/core/req/ReqCtmLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/client/controller/customer/login/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/client/controller/customer/login/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/client/controller/customer/user/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/client/controller/customer/user/UserInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/core/config/SysConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/core/config/SysConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/core/req/ReqCtmLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/core/req/ReqCtmLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/business/person/points.html" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/business/person/points.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,7 +74,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ylgshop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/mapper/customer" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -65,6 +84,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\84165\Desktop\project\mq\ylgshop\src\main\java\com\goktech\olala\server\mapper\customer" />
       <recent name="C:\Users\84165\Desktop\project\mq\ylgshop" />
     </key>
   </component>
@@ -147,6 +167,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
+          <option name="contentProportion" value="0.30564263" />
           <treeState>
             <expand>
               <path>
@@ -156,7 +177,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -185,7 +206,11 @@
       <workItem from="1603078103151" duration="70000" />
       <workItem from="1603078212732" duration="347000" />
       <workItem from="1603078626313" duration="902000" />
-      <workItem from="1603079791041" duration="3697000" />
+      <workItem from="1603079791041" duration="4096000" />
+      <workItem from="1603444944262" duration="1029000" />
+      <workItem from="1603540574872" duration="642000" />
+      <workItem from="1603546905930" duration="194000" />
+      <workItem from="1603551750012" duration="7463000" />
     </task>
     <task id="LOCAL-00001" summary="添加readme">
       <created>1603079370157</created>
@@ -201,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603080041129</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="规范SysConfig类中的注释。去除魔法值和不规范">
+      <created>1603088344339</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603088344339</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,81 +242,82 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加readme" />
     <MESSAGE value="扫描代码后将尾行注释去掉" />
-    <option name="LAST_COMMIT_MESSAGE" value="扫描代码后将尾行注释去掉" />
+    <MESSAGE value="规范SysConfig类中的注释。去除魔法值和不规范" />
+    <option name="LAST_COMMIT_MESSAGE" value="规范SysConfig类中的注释。去除魔法值和不规范" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603078785794">
+    <state x="137" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603444983144">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="137" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1603078785794" />
+    <state x="137" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1603444983144" />
     <state x="506" y="250" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1603074284181">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="506" y="250" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1603074284181" />
-    <state x="185" y="0" key="CommitChangelistDialog2" timestamp="1603080032379">
+    <state x="185" y="0" key="CommitChangelistDialog2" timestamp="1603088342484">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="185" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1603080032379" />
-    <state x="413" y="66" key="FileChooserDialogImpl" timestamp="1603079102587">
+    <state x="185" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1603088342484" />
+    <state x="413" y="66" key="FileChooserDialogImpl" timestamp="1603551832583">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="66" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603079102587" />
-    <state width="892" height="382" key="GridCell.Tab.0.bottom" timestamp="1603079536956">
+    <state x="413" y="66" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603551832583" />
+    <state width="885" height="477" key="GridCell.Tab.0.bottom" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
-    <state width="892" height="382" key="GridCell.Tab.0.center" timestamp="1603079536955">
+    <state width="885" height="477" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.0.center" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603079536955" />
-    <state width="892" height="382" key="GridCell.Tab.0.left" timestamp="1603079536955">
+    <state width="885" height="477" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.0.left" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603079536955" />
-    <state width="892" height="382" key="GridCell.Tab.0.right" timestamp="1603079536956">
+    <state width="885" height="477" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.0.right" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
-    <state width="892" height="382" key="GridCell.Tab.1.bottom" timestamp="1603079536956">
+    <state width="885" height="477" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.1.bottom" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
-    <state width="892" height="382" key="GridCell.Tab.1.center" timestamp="1603079536956">
+    <state width="885" height="477" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.1.center" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
-    <state width="892" height="382" key="GridCell.Tab.1.left" timestamp="1603079536956">
+    <state width="885" height="477" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.1.left" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
-    <state width="892" height="382" key="GridCell.Tab.1.right" timestamp="1603079536956">
+    <state width="885" height="477" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.1.right" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
-    <state width="892" height="382" key="GridCell.Tab.2.bottom" timestamp="1603079536957">
+    <state width="885" height="477" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.2.bottom" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603079536957" />
-    <state width="892" height="382" key="GridCell.Tab.2.center" timestamp="1603079536957">
+    <state width="885" height="477" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.2.center" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1603079536957" />
-    <state width="892" height="382" key="GridCell.Tab.2.left" timestamp="1603079536956">
+    <state width="885" height="477" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.2.left" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1603079536956" />
-    <state width="892" height="382" key="GridCell.Tab.2.right" timestamp="1603079536957">
+    <state width="885" height="477" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.2.right" timestamp="1603559344980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="892" height="382" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1603079536957" />
+    <state width="885" height="477" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
     <state x="71" y="0" key="SettingsEditor" timestamp="1603078422051">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="71" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603078422051" />
-    <state x="175" y="36" key="Vcs.Push.Dialog.v2" timestamp="1603080053680">
+    <state x="175" y="36" key="Vcs.Push.Dialog.v2" timestamp="1603088360505">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="175" y="36" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603080053680" />
+    <state x="175" y="36" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603088360505" />
     <state x="255" y="0" width="838" height="726" key="search.everywhere.popup" timestamp="1603087062726">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

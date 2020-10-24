@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmPointLogMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmPointLog">
+    <result column="POINT_ID" jdbcType="BIGINT" property="pointId" />
+    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
+    <result column="SOURCE" jdbcType="BIT" property="source" />
+    <result column="REFER_NUM" jdbcType="VARCHAR" property="referNum" />
+    <result column="CHARGE_POINT" jdbcType="INTEGER" property="chargePoint" />
+    <result column="RANK_POINTS" jdbcType="INTEGER" property="rankPoints" />
+    <result column="PAY_POINTS" jdbcType="INTEGER" property="payPoints" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CHANGE_DESC" jdbcType="VARCHAR" property="changeDesc" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    DELETE FROM C_POINT_LOG
+    WHERE POINT_ID = #{pointId,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insertPoint" parameterType="com.goktech.olala.server.pojo.customer.CtmPointLog">
+    INSERT INTO C_POINT_LOG (POINT_ID, CUSTOMER_ID, SOURCE,
+      REFER_NUM, CHARGE_POINT, RANK_POINTS, 
+      PAY_POINTS, CREATE_TIME, CHANGE_DESC
+      )
+    VALUES (#{pointId,jdbcType=BIGINT}, #{customerId,jdbcType=VARCHAR}, #{source,jdbcType=BIT},
+      #{referNum,jdbcType=VARCHAR}, #{chargePoint,jdbcType=INTEGER}, #{rankPoints,jdbcType=INTEGER}, 
+      #{payPoints,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{changeDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT POINT_ID, CUSTOMER_ID, SOURCE, REFER_NUM, CHARGE_POINT, RANK_POINTS, PAY_POINTS,
+    CREATE_TIME, CHANGE_DESC
+    FROM C_POINT_LOG
+  </select>
+    <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmPointLog">
+    UPDATE C_POINT_LOG
+    SET CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=BIT},
+      REFER_NUM = #{referNum,jdbcType=VARCHAR},
+      CHARGE_POINT = #{chargePoint,jdbcType=INTEGER},
+      RANK_POINTS = #{rankPoints,jdbcType=INTEGER},
+      PAY_POINTS = #{payPoints,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CHANGE_DESC = #{changeDesc,jdbcType=VARCHAR}
+    WHERE POINT_ID = #{pointId,jdbcType=BIGINT}
+  </update>
+    <select id="queryCustomerPoints" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT POINT_ID, CUSTOMER_ID, SOURCE, REFER_NUM, CHARGE_POINT, RANK_POINTS, PAY_POINTS,
+    CREATE_TIME, CHANGE_DESC
+    FROM C_POINT_LOG
+    WHERE CUSTOMER_ID = #{customerId,jdbcType=VARCHAR}
+  </select>
+
+  <!--方法暂时没用，freemarker函数直接计算-->
+  <select id="queryCustomerUsablePoints" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT SUM(CHARGE_POINT)
+    FROM C_POINT_LOG
+    WHERE CUSTOMER_ID = #{customerId,jdbcType=VARCHAR}
+  </select>
+
+
+</mapper>

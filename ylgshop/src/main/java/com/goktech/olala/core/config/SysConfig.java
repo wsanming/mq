@@ -42,6 +42,19 @@ public class SysConfig {
     public static final Integer IS_CANCEL_1 = 1;
 
     /**
+     * IS_POINT_NO="10000"; 当天未签到
+     * IS_POINT_CONTINUE="10001"; 连续签到
+     * IS_POINT_PAUSE="10002"; 断签
+     * IS_POINT_YES="10003"; 当天已签到
+     */
+
+    public static final String IS_POINT_NO="10000";
+    public static final String IS_POINT_CONTINUE="10001";
+    public static final String IS_POINT_PAUSE="10002";
+    public static final String IS_POINT_YES="10003";
+
+
+    /**
      * 订单状态
      *  ORDER_STATUS_0 = 0 已下单未支付
      *  ORDER_STATUS_1 = 1 已支付
