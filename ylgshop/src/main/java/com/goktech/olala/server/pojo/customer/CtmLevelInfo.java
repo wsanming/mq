@@ -1,5 +1,8 @@
 package com.goktech.olala.server.pojo.customer;
 
+/**
+ * @author sanming
+ */
 public class CtmLevelInfo {
     private Integer customerLevelId;
 

@@ -4,6 +4,9 @@ import com.goktech.olala.server.pojo.customer.CtmConsignee;
 
 import java.util.List;
 
+/**
+ * @author sanming
+ */
 public interface CtmConsigneeMapper {
     int addConsignee(CtmConsignee record);
 

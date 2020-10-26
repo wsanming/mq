@@ -63,7 +63,6 @@ public class UserInfoController {
             String year = sdf0.format(d1);
             String month = sdf1.format(d1);
             String day = sdf2.format(d1);
-
             view.addObject("birthdayOfYear",year);
             view.addObject("birthdayOfMonth",month);
             view.addObject("birthdayOfDay",day);
@@ -106,7 +105,6 @@ public class UserInfoController {
         }
         info.setUserMobile(request.getParameter("user-phone"));
         info.setEmail(request.getParameter("user-email"));
-        /*修改时间*/
         // Timestamp createTime = new Timestamp(new Date().getTime());
         Timestamp createTime = new Timestamp(System.currentTimeMillis());
         info.setModifiedTime(createTime);

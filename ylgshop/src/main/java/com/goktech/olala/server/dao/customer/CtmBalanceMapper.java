@@ -4,6 +4,9 @@ import com.goktech.olala.server.pojo.customer.CtmBalance;
 
 import java.util.List;
 
+/**
+ * @author sanming
+ */
 public interface CtmBalanceMapper {
     int deleteByPrimaryKey(Long balanceId);
 

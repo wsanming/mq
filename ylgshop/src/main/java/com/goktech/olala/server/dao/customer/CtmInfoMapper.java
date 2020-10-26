@@ -11,6 +11,9 @@ import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
+/**
+ * @author sanming
+ */
 public interface CtmInfoMapper {
 
     /**
@@ -23,7 +26,6 @@ public interface CtmInfoMapper {
 
     /**
      * 伪删除操作
-     *
      * @param customerInfId
      * @return
      * @throws Exception
@@ -33,7 +35,6 @@ public interface CtmInfoMapper {
 
     /**
      * 添加客户信息
-     *
      * @param record
      * @return
      */
@@ -41,7 +42,6 @@ public interface CtmInfoMapper {
 
     /**
      * 根据客户信息主键ID查询
-     *
      * @param customerInfId
      * @return
      */
@@ -74,11 +74,16 @@ public interface CtmInfoMapper {
     @Update("UPDATE C_CUSTOMER_INFO SET CUSTOMER_STATUS = ${customerStatus} WHERE CUSTOMER_INF_ID = #{customerInfId}")
     int updateStatus(@Param("customerInfId") Long customerInfId, @Param("customerStatus") Integer customerStatus) throws Exception;
 
-//    @InsertProvider(type= CtmInfoSql.class, method = "addCtmInfoByParam")
-//    @Options(useGeneratedKeys = true, keyProperty = "customerInfId", keyColumn = "CUSTOMER_INF_ID")
+
+
     int insertByExample(CtmInfo record) throws Exception;
 
-    /*根据随机生成id查询信息*/
+    /**
+     * 根据随机生成id查询信息
+     * @param customerId
+     * @return
+     * @throws Exception
+     */
     CtmInfo selectByCtmId(String customerId) throws Exception;
 
     @Select("<script>"+

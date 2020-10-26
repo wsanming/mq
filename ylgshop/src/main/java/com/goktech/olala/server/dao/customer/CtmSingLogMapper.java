@@ -4,6 +4,9 @@ import com.goktech.olala.server.pojo.customer.CtmSingLog;
 
 import java.util.List;
 
+/**
+ * @author sanming
+ */
 public interface CtmSingLogMapper {
     int insert(CtmSingLog record)throws Exception;
 

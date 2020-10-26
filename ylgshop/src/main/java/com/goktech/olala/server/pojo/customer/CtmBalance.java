@@ -2,6 +2,9 @@ package com.goktech.olala.server.pojo.customer;
 
 import java.util.Date;
 
+/**
+ * @author sanming
+ */
 public class CtmBalance {
     private Long balanceId;
 

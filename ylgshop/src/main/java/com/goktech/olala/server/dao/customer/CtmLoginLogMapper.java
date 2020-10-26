@@ -8,6 +8,9 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
+/**
+ * @author sanming
+ */
 public interface CtmLoginLogMapper {
     //删除登陆日志
     int deleteByPrimaryKey(Long loginId);

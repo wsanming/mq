@@ -4,6 +4,9 @@ import com.goktech.olala.server.pojo.customer.CtmPointLog;
 
 import java.util.List;
 
+/**
+ * @author sanming
+ */
 public interface CtmPointLogMapper {
     int deleteByPrimaryKey(Long pointId) throws Exception;
 

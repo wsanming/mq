@@ -2,6 +2,9 @@ package com.goktech.olala.server.pojo.customer;
 
 import java.sql.Timestamp;
 
+/**
+ * @author sanming
+ */
 public class CtmInfo {
     private Long customerInfId;
 

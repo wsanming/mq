@@ -10,22 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81d88ce3-b98e-47bf-9799-45074c7e8526" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/client/controller/customer/assets/AssetsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/mapper/customer/CtmPointLogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/mapper/customer/CtmSingLogMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/core/config/SysConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/core/config/SysConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/core/req/ReqCtmLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/core/req/ReqCtmLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/webapp/business/person/points.html" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/webapp/business/person/points.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/client/controller/customer/login/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/client/controller/customer/login/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/client/controller/customer/user/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/client/controller/customer/user/UserInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/core/config/SysConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/core/config/SysConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/core/req/ReqCtmLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/classes/com/goktech/olala/core/req/ReqCtmLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/client/controller/customer/login/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/client/controller/customer/login/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/client/controller/customer/user/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/client/controller/customer/user/UserInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/core/config/SysConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/core/config/SysConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/core/req/ReqCtmLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/WEB-INF/classes/com/goktech/olala/core/req/ReqCtmLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ylgshop/target/logistics/business/person/points.html" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/target/logistics/business/person/points.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/client/controller/customer/user/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/client/controller/customer/user/UserInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmBalanceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmBalanceMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmConsigneeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmConsigneeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmLevelInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmLevelInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmLoginLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmLoginLogMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmLoginMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmLoginMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmPointLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmPointLogMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmSingLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/dao/customer/CtmSingLogMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmBalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmBalance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmConsignee.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmConsignee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmLevelInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmLevelInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmLoginLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmLoginLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmPointLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmPointLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmSingLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/ylgshop/src/main/java/com/goktech/olala/server/pojo/customer/CtmSingLog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +179,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -210,7 +212,10 @@
       <workItem from="1603444944262" duration="1029000" />
       <workItem from="1603540574872" duration="642000" />
       <workItem from="1603546905930" duration="194000" />
-      <workItem from="1603551750012" duration="7463000" />
+      <workItem from="1603551750012" duration="7728000" />
+      <workItem from="1603588277361" duration="15000" />
+      <workItem from="1603588451928" duration="165000" />
+      <workItem from="1603699167280" duration="780000" />
     </task>
     <task id="LOCAL-00001" summary="添加readme">
       <created>1603079370157</created>
@@ -233,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603088344339</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="新增查看积分，和签到领积分功能。">
+      <created>1603559490846</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603559490846</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,7 +255,8 @@
     <MESSAGE value="添加readme" />
     <MESSAGE value="扫描代码后将尾行注释去掉" />
     <MESSAGE value="规范SysConfig类中的注释。去除魔法值和不规范" />
-    <option name="LAST_COMMIT_MESSAGE" value="规范SysConfig类中的注释。去除魔法值和不规范" />
+    <MESSAGE value="新增查看积分，和签到领积分功能。" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增查看积分，和签到领积分功能。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603444983144">
@@ -254,70 +267,70 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="506" y="250" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1603074284181" />
-    <state x="185" y="0" key="CommitChangelistDialog2" timestamp="1603088342484">
+    <state x="185" y="0" key="CommitChangelistDialog2" timestamp="1603559484815">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="185" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1603088342484" />
+    <state x="185" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1603559484815" />
     <state x="413" y="66" key="FileChooserDialogImpl" timestamp="1603551832583">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="66" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603551832583" />
-    <state width="885" height="477" key="GridCell.Tab.0.bottom" timestamp="1603559344980">
+    <state width="1313" height="439" key="GridCell.Tab.0.bottom" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.0.center" timestamp="1603559344980">
+    <state width="1313" height="439" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="1313" height="439" key="GridCell.Tab.0.center" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.0.left" timestamp="1603559344980">
+    <state width="1313" height="439" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="1313" height="439" key="GridCell.Tab.0.left" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.0.right" timestamp="1603559344980">
+    <state width="1313" height="439" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="1313" height="439" key="GridCell.Tab.0.right" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.1.bottom" timestamp="1603559344980">
+    <state width="1313" height="439" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="885" height="477" key="GridCell.Tab.1.bottom" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.1.center" timestamp="1603559344980">
+    <state width="885" height="477" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="885" height="477" key="GridCell.Tab.1.center" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.1.left" timestamp="1603559344980">
+    <state width="885" height="477" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="885" height="477" key="GridCell.Tab.1.left" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.1.right" timestamp="1603559344980">
+    <state width="885" height="477" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="885" height="477" key="GridCell.Tab.1.right" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.2.bottom" timestamp="1603559344980">
+    <state width="885" height="477" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="885" height="477" key="GridCell.Tab.2.bottom" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.2.center" timestamp="1603559344980">
+    <state width="885" height="477" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="885" height="477" key="GridCell.Tab.2.center" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.2.left" timestamp="1603559344980">
+    <state width="885" height="477" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="885" height="477" key="GridCell.Tab.2.left" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
-    <state width="885" height="477" key="GridCell.Tab.2.right" timestamp="1603559344980">
+    <state width="885" height="477" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
+    <state width="885" height="477" key="GridCell.Tab.2.right" timestamp="1603559594784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="885" height="477" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1603559344980" />
+    <state width="885" height="477" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1603559594784" />
     <state x="71" y="0" key="SettingsEditor" timestamp="1603078422051">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="71" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603078422051" />
-    <state x="175" y="36" key="Vcs.Push.Dialog.v2" timestamp="1603088360505">
+    <state x="175" y="36" key="Vcs.Push.Dialog.v2" timestamp="1603559528818">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="175" y="36" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603088360505" />
+    <state x="175" y="36" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603559528818" />
     <state x="255" y="0" width="838" height="726" key="search.everywhere.popup" timestamp="1603087062726">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

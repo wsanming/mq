@@ -5,6 +5,9 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+/**
+ * @author sanming
+ */
 public interface CtmLevelInfoMapper {
     int deleteByPrimaryKey(Integer customerLevelId);
 
