@@ -2,6 +2,7 @@ package com.goktech.olala.client.controller.customer.assets;
 
 import com.goktech.olala.core.config.SysConfig;
 import com.goktech.olala.core.service.ICtmInfoService;
+import com.goktech.olala.server.pojo.customer.CtmBalance;
 import com.goktech.olala.server.pojo.customer.CtmPointLog;
 import com.goktech.olala.server.pojo.customer.CtmSingLog;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 
@@ -33,15 +34,16 @@ public class AssetsController {
 
     /**
      * 我的积分
+     *
      * @param request 用于获取用户的id
      * @return
      */
     @RequestMapping("/points.do")
     @ResponseBody
-    public ModelAndView queryCustomerAssets(HttpServletRequest request){
+    public ModelAndView queryCustomerAssets(HttpServletRequest request) {
 
-        ModelAndView mav=new ModelAndView();
-        String LoginUserId = (String)request.getSession().getAttribute("LoginUserId");
+        ModelAndView mav = new ModelAndView();
+        String LoginUserId = (String) request.getSession().getAttribute("LoginUserId");
         List<CtmPointLog> ctmPointLogs = null;
 
         try {
@@ -50,21 +52,21 @@ public class AssetsController {
             e.printStackTrace();
         }
 
-        mav.addObject("point",ctmPointLogs);
+        mav.addObject("point", ctmPointLogs);
         mav.setViewName("person/points");
         return mav;
     }
 
-    @RequestMapping(value = "/addPoint.do",method = RequestMethod.POST)
+    @RequestMapping(value = "/addPoint.do", method = RequestMethod.POST)
     @ResponseBody
-    public String AddPoints(HttpServletRequest request,CtmPointLog ctmPointLog,CtmSingLog ctmSingLog){
+    public String AddPoints(HttpServletRequest request, CtmPointLog ctmPointLog, CtmSingLog ctmSingLog) {
         String LoginUserId = (String) request.getSession().getAttribute("LoginUserId");
-        String msg="";
-        long day=0;
+        String msg = "";
+        long day = 0;
         try {
             CtmSingLog time = iCtmInfoService.SelectTimeByID(LoginUserId);
 
-            if (time==null){
+            if (time == null) {
                 //今天没有签到
                 ctmSingLog.setCustomerId(LoginUserId);
                 ctmSingLog.setCreateTime(new Date());
@@ -84,7 +86,7 @@ public class AssetsController {
                 day = (System.currentTimeMillis() - time.getUpdateTime().getTime()) / (24 * 60 * 60 * 1000);
                 CtmSingLog SignInfo = iCtmInfoService.querySignInfoById(LoginUserId);
                 //签到日期相隔1天则为连续签到
-                if (day>0 && day < 2) {
+                if (day > 0 && day < 2) {
                     SignInfo.setUpdateTime(new Date());
                     int i = SignInfo.getCount() + 1;
                     SignInfo.setCount(i);
@@ -98,7 +100,7 @@ public class AssetsController {
                     ctmPointLog.setChangeDesc("签到积分");
                     iCtmInfoService.insertPoint(ctmPointLog);
                     msg = SysConfig.IS_POINT_CONTINUE;
-                } else if (day>=2){
+                } else if (day >= 2) {
                     //签到日期大于一天则为断签，连续签到变为连续签到1天
                     SignInfo.setUpdateTime(new Date());
                     int i = SignInfo.getCount() + 1;
@@ -122,4 +124,28 @@ public class AssetsController {
         }
         return msg;
     }
+
+    @RequestMapping("/balance.do")
+    @ResponseBody
+    public ModelAndView queryBalance(HttpServletRequest request, HttpServletResponse response){
+        String loginUserId = (String) request.getSession().getAttribute("LoginUserId");
+        ModelAndView mav=new ModelAndView();
+
+        if(loginUserId==null || "".equals(loginUserId) ){
+            mav.setViewName("home/login");
+            return mav;
+        }
+
+        List<CtmBalance> ctmBalance = null;
+        try {
+            ctmBalance = iCtmInfoService.queryBalance(loginUserId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        mav.addObject("balance",ctmBalance);
+        mav.setViewName("person/walletlist");
+        return mav;
+    }
+
+
 }

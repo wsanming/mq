@@ -105,7 +105,6 @@ public class UserInfoController {
         }
         info.setUserMobile(request.getParameter("user-phone"));
         info.setEmail(request.getParameter("user-email"));
-        // Timestamp createTime = new Timestamp(new Date().getTime());
         Timestamp createTime = new Timestamp(System.currentTimeMillis());
         info.setModifiedTime(createTime);
         iCtmInfoService.updateCustomerInfoByCtmId(info);

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmBalanceMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmBalance">
+    <result column="BALANCE_ID" jdbcType="BIGINT" property="balanceId" />
+    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
+    <result column="SOURCE" jdbcType="BIT" property="source" />
+    <result column="SOURCE_SN" jdbcType="VARCHAR" property="sourceSn" />
+    <result column="AMOUNT" jdbcType="INTEGER" property="amount" />
+    <result column="FROZEN_MONEY" jdbcType="INTEGER" property="frozenMoney" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CHANGE_DESC" jdbcType="VARCHAR" property="changeDesc" />
+  </resultMap>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmBalance">
+    INSERT INTO C_BALANCE_LOG (BALANCE_ID, CUSTOMER_ID, SOURCE,
+      SOURCE_SN, AMOUNT, FROZEN_MONEY, 
+      CREATE_TIME, CHANGE_DESC)
+    VALUES (#{balanceId,jdbcType=BIGINT}, #{customerId,jdbcType=VARCHAR}, #{source,jdbcType=BIT},
+      #{sourceSn,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, #{frozenMoney,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{changeDesc,jdbcType=VARCHAR})
+  </insert>
+  <select id="queryBalance" resultMap="BaseResultMap">
+    SELECT BALANCE_ID, CUSTOMER_ID, SOURCE, SOURCE_SN, AMOUNT, FROZEN_MONEY, CREATE_TIME,
+    CHANGE_DESC
+    FROM C_BALANCE_LOG
+    WHERE CUSTOMER_ID = #{customerId,jdbcType=VARCHAR}
+  </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    DELETE FROM C_BALANCE_LOG
+    WHERE BALANCE_ID = #{balanceId,jdbcType=BIGINT}
+  </delete>
+
+    <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmBalance">
+    UPDATE C_BALANCE_LOG
+    SET CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=BIT},
+      SOURCE_SN = #{sourceSn,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=INTEGER},
+      FROZEN_MONEY = #{frozenMoney,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CHANGE_DESC = #{changeDesc,jdbcType=VARCHAR}
+    WHERE BALANCE_ID = #{balanceId,jdbcType=BIGINT}
+  </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT BALANCE_ID, CUSTOMER_ID, SOURCE, SOURCE_SN, AMOUNT, FROZEN_MONEY, CREATE_TIME,
+    CHANGE_DESC
+    FROM C_BALANCE_LOG
+    WHERE BALANCE_ID = #{balanceId,jdbcType=BIGINT}
+  </select>
+
+</mapper>
