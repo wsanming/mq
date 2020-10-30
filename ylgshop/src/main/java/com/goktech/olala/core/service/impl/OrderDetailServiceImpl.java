@@ -24,6 +24,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * @author sanming
+ * @Classname OrderDetailServiceImpl
+ * @Description
+ * @Date 2020/10/30 10:42
+ * @Created by sanming
+ */
+
 @Service("orderDetailService")
 public class OrderDetailServiceImpl implements IOrderDetailService {
 
@@ -67,11 +75,6 @@ public class OrderDetailServiceImpl implements IOrderDetailService {
     @Override
     public PageInfo<OrderResp> queryOrders(int pageIndex, int pageSize, ReqOrder orderReq) throws Exception {
         PageHelper.startPage(pageIndex, pageSize);
-
-//        if (orderDetail != null && StringUtils.isNotBlank(orderDetail.getGoodsName())) {
-//           System.out.println("goods.getGoodsName()======>" + goods.getGoodsName());
-//            orderDetail.setGoodsName("%" + orderDetail.getGoodsName() + "%");
-//        }
 
         List<OrderResp> infoList = orderDetailMapper.selectAllByExample(orderReq);
 

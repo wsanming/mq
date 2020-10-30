@@ -8,7 +8,13 @@ import com.goktech.olala.server.pojo.order.OrderDetail;
 import com.goktech.olala.server.pojo.order.OrderMaster;
 
 import java.util.List;
-
+/**
+ * @author sanming
+ * @Classname IOrderDetailService
+ * @Description
+ * @Date 2020/10/30 10:11
+ * @Created by sanming
+ */
 public interface IOrderDetailService {
     int selectById(Integer id, String goodsId)throws  Exception;
 

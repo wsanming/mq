@@ -1,7 +1,9 @@
 package com.goktech.olala.client.controller.customer.assets;
 
 import com.goktech.olala.core.config.SysConfig;
+import com.goktech.olala.core.resp.RespOrderDetailVo;
 import com.goktech.olala.core.service.ICtmInfoService;
+import com.goktech.olala.core.service.IOrderDetailService;
 import com.goktech.olala.server.pojo.customer.CtmBalance;
 import com.goktech.olala.server.pojo.customer.CtmPointLog;
 import com.goktech.olala.server.pojo.customer.CtmSingLog;
@@ -31,10 +33,11 @@ public class AssetsController {
     @Autowired
     private ICtmInfoService iCtmInfoService;
 
+    @Autowired
+    IOrderDetailService iOrderDetailService;
 
     /**
      * 我的积分
-     *
      * @param request 用于获取用户的id
      * @return
      */
@@ -145,6 +148,24 @@ public class AssetsController {
         mav.addObject("balance",ctmBalance);
         mav.setViewName("person/walletlist");
         return mav;
+    }
+
+
+    /**
+     * 账单明细
+     *
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/myBill.do")
+    @ResponseBody
+    public ModelAndView myBill(HttpServletRequest request) throws Exception {
+        ModelAndView view = new ModelAndView();
+        String LoginUserId = (String)request.getSession().getAttribute("LoginUserId");
+        List<RespOrderDetailVo> respOrderDetailVos = iOrderDetailService.queryDetailAndMasterOrderById(LoginUserId);
+        view.addObject("BillDetails",respOrderDetailVos);
+        view.setViewName("person/bill");
+        return view;
     }
 
 
