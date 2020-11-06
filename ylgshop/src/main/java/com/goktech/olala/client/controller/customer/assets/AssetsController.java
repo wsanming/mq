@@ -23,7 +23,6 @@ import java.util.List;
  * @Classname AssetsController
  * @Description 我的积分、签到领积分、优惠券、红包、账户余额、账单明细。
  * @Date 2020/10/24 23:11
- * @Created by sanming
  */
 
 @Controller
