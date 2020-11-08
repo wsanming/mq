@@ -9,14 +9,41 @@ import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
+/**
+ * @author sanming
+ */
 public interface CtmCollectMapper {
 
+    /**
+     * 根据collectId删除
+     * @param collectId
+     * @return
+     * @throws Exception
+     */
     int deleteByPrimaryKey(Integer collectId) throws Exception;
 
+    /**
+     * ..
+     * @param record
+     * @return
+     * @throws Exception
+     */
     int insertByExample(CtmCollect record) throws Exception;
 
+    /**
+     * 根据collectId查找
+     * @param collectId
+     * @return
+     * @throws Exception
+     */
     CtmCollect selectByPrimaryKey(Integer collectId) throws Exception;
 
+    /**
+     * 更新
+     * @param record
+     * @return
+     * @throws Exception
+     */
     int updateByPrimaryKey(CtmCollect record) throws Exception;
 
     @Update("<script>"

@@ -1,5 +1,8 @@
 package com.goktech.olala.core.req;
 
+/**
+ * @author sanming
+ */
 public class ReqCollect {
 
     private Integer collectId;
@@ -50,5 +53,12 @@ public class ReqCollect {
 
     public void setIsCancel(Integer isCancel) {
         this.isCancel = isCancel;
+    }
+
+    /**
+     * 设置isCancel的值
+     */
+    public void service() {
+        this.isCancel=1;
     }
 }

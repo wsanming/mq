@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmCollectMapper">
+
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmCollect">
+    <id column="COLLECT_ID" jdbcType="INTEGER" property="collectId" />
+    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
+    <result column="GOODS_ID" jdbcType="VARCHAR" property="goodsId" />
+    <result column="BUSINESS_ID" jdbcType="VARCHAR" property="businessId" />
+    <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="IS_EXPIRES" jdbcType="INTEGER" property="isExpires" />
+    <result column="EXPIRES_DATE" jdbcType="TIMESTAMP" property="expiresDate" />
+    <result column="IS_CANCEL" jdbcType="INTEGER" property="isCancel" />
+    <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    DELETE FROM C_COLLECT
+    WHERE COLLECT_ID = #{collectId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.customer.CtmCollect"
+          useGeneratedKeys="true" keyProperty="collectId" keyColumn="COLLECT_ID">
+    INSERT INTO C_COLLECT (
+    CUSTOMER_ID,
+    <if test="goodsId != null and goodsId != '' ">
+      GOODS_ID,
+    </if>
+    <if test="businessId != null and businessId != '' ">
+      BUSINESS_ID,
+    </if>
+      ADD_TIME, IS_EXPIRES, EXPIRES_DATE, 
+      IS_CANCEL, MODIFIED_TIME)
+    VALUES (#{customerId,jdbcType=VARCHAR},
+    <if test="goodsId != null and goodsId != '' ">
+      #{goodsId,jdbcType=VARCHAR},
+    </if>
+    <if test="businessId != null and businessId != '' ">
+      #{businessId,jdbcType=VARCHAR},
+    </if>
+      #{addTime,jdbcType=TIMESTAMP}, #{isExpires,jdbcType=BIT}, #{expiresDate,jdbcType=TIMESTAMP}, 
+      #{isCancel,jdbcType=BIT}, #{modifiedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmCollect">
+    UPDATE C_COLLECT
+    <set>
+      <if test="goodsId != null and goodsId != '' ">
+        GOODS_ID = #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessId != null and businessId != '' ">
+        BUSINESS_ID = #{businessId,jdbcType=VARCHAR},
+      </if>
+      <if test="isExpires != null ">
+        IS_EXPIRES = #{isExpires,jdbcType=INTEGER},
+      </if>
+      <if test="expiresDate != null ">
+        EXPIRES_DATE = #{expiresDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCancel != null ">
+        IS_CANCEL = #{isCancel,jdbcType=INTEGER},
+      </if>
+    </set>
+      MODIFIED_TIME = #{modifiedTime,jdbcType=TIMESTAMP}
+    WHERE COLLECT_ID = #{collectId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT COLLECT_ID, CUSTOMER_ID, GOODS_ID, BUSINESS_ID, ADD_TIME, IS_EXPIRES, EXPIRES_DATE, IS_CANCEL,
+    MODIFIED_TIME
+    FROM C_COLLECT
+    WHERE COLLECT_ID = #{collectId,jdbcType=INTEGER}
+  </select>
+
+</mapper>
