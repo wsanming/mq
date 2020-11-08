@@ -42,8 +42,10 @@ public class IndexInfoController {
         view.addObject("articleVoList", respArticleVoList);
         List<IndexAdvers> ctmAdverts = ctmIndexService.queryAvders();
         view.addObject("ctmAdverts",ctmAdverts);
+        System.out.println("--------"+ctmAdverts);
         List<GoodsActivit> indexActivities = ctmIndexService.queryHotActivity();
         view.addObject("indexActivities", indexActivities);
+        System.out.println("******"+indexActivities);
         List<RespGoodsCategory> categoryList = goodsService.beTreeCategory();
         if(categoryList != null){
             ReqGoodsBrand reqGoodsBrand = new ReqGoodsBrand();

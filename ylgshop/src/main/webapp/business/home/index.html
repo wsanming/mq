@@ -47,8 +47,8 @@
             <!--轮播 -->
             <div class="am-slider am-slider-default scoll" data-am-flexslider id="demo-slider-0">
                 <ul class="am-slides">
-					<#if ctmAdvers?? && (ctmAdvers?size > 0) >
-						<#list ctmAdvers as adver>
+					<#if ctmAdverts?? && (ctmAdverts?size > 0) >
+						<#list ctmAdverts as adver>
 							 <li class="banner1"><a href="/olalashop/${adver.linkUrl}"><img src="${adver.adverImg}"/></a></li>
 						</#list>
 					<#else>
@@ -186,7 +186,7 @@
 
 
     <script type="text/javascript">
-        if ($(window).width() &lt; 640) {
+        if ($(window).width() < 640) {
             function autoScroll(obj) {
                 $(obj).find("ul").animate({
                     marginTop: "-39px"
