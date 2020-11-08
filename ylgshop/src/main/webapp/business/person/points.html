@@ -37,7 +37,7 @@
 							<#list point as p >
 									<#assign x = x + p.getChargePoint() />
 							</#list>
-						${x}
+							${x}
 						</span></div>
 					<div class="pointshop"><a href="#"><i><img src="../images/u5.png" /></i>积分商城</a></div>
 					<div class="signIn"><a href="javascript:void(0)" onclick="SignIn()"><i class="am-icon-calendar"></i><em>+5</em>每日签到</a></div>
@@ -65,10 +65,10 @@
 								<tr>
 									<td class="pointType">
 										<#if p.getSource() == true >
-										登陆
+											登陆
 										<#else>
-										订单
-									</#if></td>
+											订单
+										</#if></td>
 									<td class="pointNum">${p.getChargePoint()}</td>
 									<td class="pointTime">${p.getCreateTime()?string("yyyy年MM月dd日 HH:mm:ss")}</td>
 								</tr>
@@ -91,7 +91,7 @@
 								<#if p.getChargePoint() gt 0 >
 								<tr>
 									<td class="pointType">
-										<#if p.getSource() == true >
+									<#if p.getSource() == true >
 										登陆
 										<#else>
 										订单
@@ -101,8 +101,8 @@
 									<td class="pointTime">${p.getCreateTime()?string("yyyy年MM月dd日 HH:mm:ss")}</td>
 								</tr>
 								</#if>
-							</#list>
-							</tbody>
+								</#list>
+								</tbody>
 							</table>
 						</div>
 						<div class="am-tab-panel am-fade" id="tab3">
@@ -117,20 +117,20 @@
 								</thead>
 								<tbody>
 								<#list point as p>
-								<#if p.getChargePoint() lt 0 >
-								<tr>
-									<td class="pointType">
-										<#if p.getSource() == true >
-										登陆
-										<#else>
-										订单
-									</#if></td>
-									<td class="pointNum">${p.getChargePoint()}</td>
-									<td class="pointTime">${p.getCreateTime()?string("yyyy年MM月dd日 HH:mm:ss")}</td>
-								</tr>
-								</#if>
-							</#list>
-							</tbody>
+									<#if p.getChargePoint() lt 0 >
+									<tr>
+										<td class="pointType">
+											<#if p.getSource() == true >
+												登陆
+											<#else>
+												订单
+											</#if></td>
+										<td class="pointNum">${p.getChargePoint()}</td>
+										<td class="pointTime">${p.getCreateTime()?string("yyyy年MM月dd日 HH:mm:ss")}</td>
+									</tr>
+									</#if>
+								</#list>
+								</tbody>
 							</table>
 						</div>
 
@@ -158,7 +158,7 @@
 			url:"/olalashop/cntApi/addPoint.do",
 			dataType: "json",
 			data:{
-
+				/*"userPoint":5,*/
 			},
 			success:function (date) {
 				if (date =="10000" || date == "10001"){
@@ -173,7 +173,7 @@
 
 		});
 	}
-
-
+	
+	
 </script>
 </html>

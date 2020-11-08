@@ -2,102 +2,102 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
-	<title>我的收藏</title>
-	<link href="/olalashop/business/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-	<link href="/olalashop/business/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-	<link href="/olalashop/business/css/personal.css" rel="stylesheet" type="text/css">
-	<link href="/olalashop/business/css/colstyle.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+    <title>我的收藏</title>
+    <link href="/olalashop/business/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="/olalashop/business/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link href="/olalashop/business/css/personal.css" rel="stylesheet" type="text/css">
+    <link href="/olalashop/business/css/colstyle.css" rel="stylesheet" type="text/css">
 
-	<script src="/olalashop/business/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-	<script src="/olalashop/business/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
+    <script src="/olalashop/business/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/olalashop/business/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
 </head>
 
 <body>
 <!--头 -->
 <header>
-	<#include "person/header.html">
+    <#include "person/header.html">
 </header>
 <div class="nav-table"></div>
 <b class="line"></b>
 <div class="center">
-	<div class="col-main">
-		<div class="main-wrap">
+    <div class="col-main">
+        <div class="main-wrap">
 
-			<div class="user-collection">
-				<!--标题 -->
-				<div class="am-cf am-padding">
-					<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">我的收藏</strong> / <small>My&nbsp;Collection</small>
-					</div>
-				</div>
-				<hr/>
+            <div class="user-collection">
+                <!--标题 -->
+                <div class="am-cf am-padding">
+                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">我的收藏</strong> / <small>My&nbsp;Collection</small>
+                    </div>
+                </div>
+                <hr/>
 
-				<div class="you-like">
-					<div class="s-bar">
-						我的收藏
-						<a class="am-badge am-badge-danger am-round">降价</a>
-						<a class="am-badge am-badge-danger am-round">下架</a>
-					</div>
-					<div class="s-content">
-						<#list collectVos as collectObj>
-						<div class="s-item-wrap">
-							<div class="s-item">
-								<div class="s-pic">
-									<a href="/olalashop/goodsIndexApi/queryGoodsDetail.do?goodsId=${collectObj.goodsId}" class="s-pic-link">
-										<img src="${collectObj.imgPath}" alt="${collectObj.goodsName}" title="${collectObj.goodsTitle}" class="s-pic-img s-guess-item-img">
-									</a>
-								</div>
-								<div class="s-info">
-									<div class="s-title"><a href="#" title="${collectObj.goodsTitle}">${collectObj.goodsName}</a>
-									</div>
-									<div class="s-price-box">
+                <div class="you-like">
+                    <div class="s-bar">
+                        我的收藏
+                        <a class="am-badge am-badge-danger am-round">降价</a>
+                        <a class="am-badge am-badge-danger am-round">下架</a>
+                    </div>
+                    <div class="s-content">
+                        <#list collectVos as collectObj>
+                            <div class="s-item-wrap">
+                                <div class="s-item">
+                                    <div class="s-pic">
+                                        <a href="/olalashop/goodsIndexApi/queryGoodsDetail.do?goodsId=${collectObj.goodsId}" class="s-pic-link">
+                                            <img src="${collectObj.imgPath}" alt="${collectObj.goodsName}" title="${collectObj.goodsTitle}" class="s-pic-img s-guess-item-img">
+                                        </a>
+                                    </div>
+                                    <div class="s-info">
+                                        <div class="s-title"><a href="#" title="${collectObj.goodsTitle}">${collectObj.goodsName}</a>
+                                        </div>
+                                        <div class="s-price-box">
                                                 <span class="s-price"><em class="s-price-sign">¥</em><em
-														class="s-value">${collectObj.promotePrice}</em></span>
-										<span class="s-history-price"><em class="s-price-sign">¥</em><em
-												class="s-value">${collectObj.shopPrice}</em></span>
-									</div>
-									<div class="s-extra-box">
-										<span class="s-comment">好评: 98.03%</span>
-										<span class="s-sales">月销: ${collectObj.monthSales}</span>
-									</div>
-								</div>
-								<div class="s-tp">
-									<span class="ui-btn-loading-before">找相似</span>
-									<i class="am-icon-shopping-cart"></i>
-									<span class="ui-btn-loading-before buy">加入购物车</span>
-									<p>
-										<a href="javascript:;" onclick="addCollect('${collectObj.collectId}',1)" class="c-nodo J_delFav_btn">取消收藏</a>
-									</p>
-								</div>
-							</div>
-						</div>
-					</#list>
-				</div>
-				<div class="s-more-btn i-load-more-item" data-screen="0"><i class="am-icon-refresh am-icon-fw"></i>更多
-				</div>
-			</div>
+                                                        class="s-value">${collectObj.promotePrice}</em></span>
+                                            <span class="s-history-price"><em class="s-price-sign">¥</em><em
+                                                    class="s-value">${collectObj.shopPrice}</em></span>
+                                        </div>
+                                        <div class="s-extra-box">
+                                            <span class="s-comment">好评: 98.03%</span>
+                                            <span class="s-sales">月销: ${collectObj.monthSales}</span>
+                                        </div>
+                                    </div>
+                                    <div class="s-tp">
+                                        <span class="ui-btn-loading-before">找相似</span>
+                                        <i class="am-icon-shopping-cart"></i>
+                                        <span class="ui-btn-loading-before buy">加入购物车</span>
+                                        <p>
+                                            <a href="javascript:;" onclick="addCollect('${collectObj.collectId}',1)" class="c-nodo J_delFav_btn">取消收藏</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </#list>
+                    </div>
+                    <div class="s-more-btn i-load-more-item" data-screen="0"><i class="am-icon-refresh am-icon-fw"></i>更多
+                    </div>
+                </div>
 
-		</div>
+            </div>
 
-	</div>
-	<!--底部-->
-	<div class="footer"></div>
-</div>
-<aside class="menu"></aside>
+        </div>
+        <!--底部-->
+        <div class="footer"></div>
+    </div>
+    <aside class="menu"></aside>
 </div>
 
 </body>
 <script>
-	$(function () {
-		$(".nav-table").load("/olalashop/business/person/nav.html");
-		$("div.footer").load("/olalashop/business/home/footer.html");
-		$("aside").load("/olalashop/business/home/aside.html");
-	})
+    $(function () {
+        $(".nav-table").load("/olalashop/business/person/nav.html");
+        $("div.footer").load("/olalashop/business/home/footer.html");
+        $("aside").load("/olalashop/business/home/aside.html");
+    })
 
-	//取消收藏
-	function addCollect(collectId, status){
-		location.href = "/olalashop/goodsIndexApi/saveCollect.do?collectId="+collectId+"&isCancel="+status+"&source=1";
-	}
+    //取消收藏
+    function addCollect(collectId, status){
+        location.href = "/olalashop/goodsIndexApi/saveCollect.do?collectId="+collectId+"&isCancel="+status+"&source=1";
+    }
 </script>
 </html>

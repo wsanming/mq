@@ -180,7 +180,7 @@ height: 14px;background: url(../images/cardbg.png);}
 .suggestmain .am-btn.anniu{width:100%;margin:20px auto 25px;}
 .suggestTel i{margin-right:10px ;}
 /*底部*/
-.footer{display:none; text-align: center;border-top: 2px solid #F8F8F8 margin-top:20px; padding-top: 5px;}
+.footer{display:none; text-align: center;border-top: 2px solid #F8F8F8; margin-top:20px; padding-top: 5px;}
 .main-wrap {background-color:#fff;}
 @media only screen and (min-width:640px) 
 {	

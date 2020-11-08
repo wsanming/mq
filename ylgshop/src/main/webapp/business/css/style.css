@@ -93,6 +93,7 @@ flex: 1 1 0%;line-height: 16px;cursor: pointer;}
 .tb-btn a {margin-right: 0px;float: left;overflow: hidden; position: relative;width:100%; height: 30px; line-height: 30px;background-color: #FFEDED;
 color:#F03726;font-size: 14px;text-align: center;}
 .tb-btn-basket a {background-color:#F03726;color: #FFF;}
+.tb-btn-collect a {background-color: #999797;color: #FFF;}
 
 .pay li,.pay .pay-opt{float:left; margin-top:15px;width:33.33% ;height:30px ;}
 .pay span{display:inline-block;width: 50%;float: left;font-size:14px ;background:#fff ;line-height:30px ;cursor: pointer;}
@@ -249,6 +250,8 @@ flex: 1 1 0%;line-height: 16px;cursor: pointer;}
 .tb-btn a{width:98px ;border: 1px solid #F03726;}
 .pay .pay-opt{display:none ;}
 .pay li{width: auto;}
+
+.tb-btn-collect{margin-right:10px;}
 
 /*印象*/
 .p-bfc {padding: 0px ; }
