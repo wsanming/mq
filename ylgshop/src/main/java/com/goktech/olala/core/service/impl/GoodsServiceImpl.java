@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author sanming
+ */
 @Service("goodsService")
 public class GoodsServiceImpl implements IGoodsService {
 
@@ -47,26 +50,9 @@ public class GoodsServiceImpl implements IGoodsService {
     GoodsParamMapper goodsParamMapper;
 
     @Autowired
-    GoodsExtendsMapper goodsExtendsMapper;
-
-    @Autowired
     GoodsReportMapper reportMapper;
 
-    @Override
-    public PageInfo<RespGoodsVo> queryGoodsByParam(ReqGoods goodsReq, Integer pageNum, Integer pageSize) throws Exception{
-        PageHelper.startPage(pageNum, pageSize);
-        List<RespGoodsVo> respGoodsVoList = goodsMapper.selectByExample(goodsReq);
-        if(respGoodsVoList != null){
-            for (RespGoodsVo respGoodsVo: respGoodsVoList) {
-                respGoodsVo.setMarketPrice(RMBUtil.changeF2Y(Long.valueOf(respGoodsVo.getMarketPrice())));
-                respGoodsVo.setShopPrice(RMBUtil.changeF2Y(Long.valueOf(respGoodsVo.getShopPrice())));
-                respGoodsVo.setCostPrice(RMBUtil.changeF2Y(Long.valueOf(respGoodsVo.getCostPrice())));
-                respGoodsVo.setPromotePrice(RMBUtil.changeF2Y(Long.valueOf(respGoodsVo.getPromotePrice())));
-            }
-        }
-        PageInfo<RespGoodsVo> pageInfo = new PageInfo(respGoodsVoList);
-        return pageInfo;
-    }
+
 
     @Override
     public List<RespGoodsVo> queryGoodsByParam(ReqGoods goodsReq) throws Exception {
@@ -84,21 +70,7 @@ public class GoodsServiceImpl implements IGoodsService {
     }
 
 
-    @Override
-    public int removeGoodsById(String goodsId) throws Exception{
-        if(StringUtils.isBlank(goodsId)){
-            return 0;
-        }
-        return goodsMapper.updateIsDelStatusById(goodsId, 1);
-    }
 
-    @Override
-    public int updateGoodsIsOnById(String goodsId, Integer isOnSale) throws Exception {
-        if(StringUtils.isBlank(goodsId) || isOnSale == null ){
-            return 0;
-        }
-        return goodsMapper.updateIsOnSaleById(goodsId, isOnSale);
-    }
 
     @Override
     public RespGoodsVo queryGoodsById(String goodsId) throws Exception{
@@ -158,49 +130,7 @@ public class GoodsServiceImpl implements IGoodsService {
         return respGoodsVo;
     }
 
-    @Transactional
-    @Override
-    public int saveGoodsInfo(ReqGoods reqGoods) throws Exception{
-        int result = 0;
-        String goodsId = reqGoods.getGoodsId();
-        Goods goods = new Goods();
-        BeanUtils.copyProperties(reqGoods, goods);
-        String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        if(StringUtils.isNotBlank(reqGoods.getEffectiveDate())){
-            goods.setEffectiveDate(Timestamp.valueOf(reqGoods.getEffectiveDate()));
-        }
-        if(StringUtils.isNotBlank(reqGoods.getPromoteStartDate())){
-            goods.setPromoteStartDate(Timestamp.valueOf(reqGoods.getPromoteStartDate()));
-        }
-        if(StringUtils.isNotBlank(reqGoods.getPromoteEndDate())){
-            goods.setPromoteEndDate(Timestamp.valueOf(reqGoods.getPromoteEndDate()));
-        }
-        goods.setUpdateBy(SysConfig.SYSTEM_USER);
-        goods.setUpdateTime(Timestamp.valueOf(nowTime));
-        if(StringUtils.isNotBlank(goodsId)){
-            goods.setGoodsId(goodsId);
-            result = goodsMapper.updateByPrimaryKey(goods);
-        }else{
-            goodsId = String.valueOf(System.currentTimeMillis()/1000);
-            reqGoods.setGoodsId(goodsId);
-            goods.setGoodsId(goodsId);
-            goods.setGoodsSn(RandomStringUtils.randomAlphanumeric(12));
-            goods.setCreateBy(SysConfig.SYSTEM_USER);
-            goods.setCreateTime(Timestamp.valueOf(nowTime));
-            result = goodsMapper.insertByExample(goods);
-        }
-        if(result > 0){
-            goodsPictureMapper.deleteByRelation(goodsId, 0);
 
-            String imgPathArrStr = reqGoods.getImgPathArr();
-            if(StringUtils.isNotBlank(imgPathArrStr)) {
-                String[] imgPathArr = imgPathArrStr.split(",");
-                this.saveGoodsPicture(imgPathArr, goodsId);
-            }
-            this.saveGoodsParam(reqGoods);
-        }
-        return result;
-    }
 
     @Override
     public PageInfo<RespGoodsBrandVo> queryGoodsBrandByParam(ReqGoodsBrand goodsBrandReq, Integer pageNum, Integer pageSize) throws Exception {
@@ -215,43 +145,6 @@ public class GoodsServiceImpl implements IGoodsService {
         return goodsBrandMapper.selectByExample(goodsBrandReq);
     }
 
-    @Override
-    public RespGoodsBrandVo queryBrandInfoById(Long brandId) throws Exception {
-        if(brandId == null){
-            return null;
-        }
-        GoodsBrand bandInfo = goodsBrandMapper.selectByPrimaryKey(brandId);
-        RespGoodsBrandVo respBrandVo = new RespGoodsBrandVo();
-        BeanUtils.copyProperties(bandInfo, respBrandVo);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        respBrandVo.setCreateTime(sdf.format(bandInfo.getCreateTime()));
-        respBrandVo.setUpdateTime(sdf.format(bandInfo.getUpdateTime()));
-        return respBrandVo;
-    }
-
-    @Override
-    public int saveBrandInfo(ReqGoodsBrand goodsBrandReq) throws Exception {
-        GoodsBrand goodsBrand = new GoodsBrand();
-        BeanUtils.copyProperties(goodsBrandReq, goodsBrand);
-        String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        goodsBrand.setUpdateBy(SysConfig.SYSTEM_USER);
-        goodsBrand.setUpdateTime(Timestamp.valueOf(nowTime));
-        if(goodsBrand.getBrandId() != null){
-            return goodsBrandMapper.updateByPrimaryKey(goodsBrand);
-        }
-        goodsBrand.setIsShow(1);
-        goodsBrand.setCreateBy(SysConfig.SYSTEM_USER);
-        goodsBrand.setCreateTime(Timestamp.valueOf(nowTime));
-        return goodsBrandMapper.insertByExample(goodsBrand);
-    }
-
-    @Override
-    public int removeBrandById(Long brandId) throws Exception{
-        if(brandId == null){
-            return 0;
-        }
-        return goodsBrandMapper.deleteByPrimaryKey(brandId);
-    }
 
     @Override
     public List<RespGoodsCategory> queryCategoryList(ReqCategory reqCategory) throws Exception {
@@ -329,77 +222,4 @@ public class GoodsServiceImpl implements IGoodsService {
     public int saveGoodsPictureInfo(GoodsPicture goodsPicture) throws Exception {
         return goodsPictureMapper.insertByExample(goodsPicture);
     }
-
-    /**
-     * 封装保存商品参数信息
-     *
-     * @param reqGoods
-     * @throws Exception
-     */
-    private void saveGoodsParam(ReqGoods reqGoods) throws Exception{
-        GoodsParam goodsParam = new GoodsParam();
-
-        goodsParam.setBrandId(reqGoods.getBrandId());
-        goodsParam.setGoodsId(reqGoods.getGoodsId());
-        goodsParam.setSpecs(reqGoods.getSpecs());
-        goodsParam.setWeight(reqGoods.getWeight());
-        goodsParam.setProduceAddr(reqGoods.getProduceAddr());
-        goodsParam.setIngredients(reqGoods.getIngredients());
-        goodsParam.setSourceSupplier(reqGoods.getSourceSupplier());
-        goodsParam.setExtendsParam(reqGoods.getExtendsJson());
-        goodsParam.setIsDelete(0);
-        goodsParam.setIsHot(1);
-        goodsParam.setIsPromote(1);
-        goodsParam.setColor(reqGoods.getColor());
-        goodsParam.setWeight(reqGoods.getWeight());
-        goodsParam.setEatMethod(reqGoods.getEatMethod());
-        goodsParam.setSize(reqGoods.getSize());
-        goodsParam.setIsAloneSale(reqGoods.getIsAloneSale());
-        goodsParam.setIsBest(reqGoods.getIsBest());
-        goodsParam.setPackageType(reqGoods.getPackageType());
-        goodsParam.setStorageType(reqGoods.getStorageType());
-        goodsParam.setSourceAddr(reqGoods.getSourceAddr());
-        goodsParam.setSourceSupplier(reqGoods.getSourceSupplier());
-        goodsParam.setProLicenseNo(reqGoods.getProLicenseNo());
-        goodsParam.setIntegral(reqGoods.getIntegral());
-        goodsParam.setGiveIntegral(reqGoods.getGiveIntegral());
-
-        this.saveGoodsParamsInfo(goodsParam);
-
-    }
-
-    /**
-     * 封装保存商品图片信息
-     *
-     * @param imgPathArr
-     * @param goodsId
-     * @throws Exception
-     */
-    private void saveGoodsPicture(String[] imgPathArr, String goodsId) throws Exception{
-        if(imgPathArr != null){
-            String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-            GoodsPicture goodsPicture = null;
-            for (String imgPath :imgPathArr) {
-                if(StringUtils.isBlank(imgPath)){
-                    continue;
-                }
-                goodsPicture = new GoodsPicture();
-                goodsPicture.setPictureId(System.currentTimeMillis()/1000);
-                goodsPicture.setRelationId(goodsId);
-                goodsPicture.setRelationType(0);
-                goodsPicture.setOriginalImg(imgPath);
-                goodsPicture.setRealImg(imgPath);
-                goodsPicture.setStatus(1);
-                goodsPicture.setIsMaster(1);
-                goodsPicture.setUpdateBy(SysConfig.SYSTEM_USER);
-                goodsPicture.setUpdateTime(Timestamp.valueOf(nowTime));
-                goodsPicture.setCreateBy(SysConfig.SYSTEM_USER);
-                goodsPicture.setCreateTime(Timestamp.valueOf(nowTime));
-
-                this.saveGoodsPictureInfo(goodsPicture);
-            }
-        }
-        return;
-    }
-
 }

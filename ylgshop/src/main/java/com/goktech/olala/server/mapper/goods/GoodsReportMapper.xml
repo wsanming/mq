@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.goods.GoodsReportMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.goods.GoodsReport">
+    <id column="GOODS_ID" jdbcType="VARCHAR" property="goodsId" />
+    <result column="MONTH_SALES" jdbcType="INTEGER" property="monthSales" />
+    <result column="COUNT_SALES" jdbcType="INTEGER" property="countSales" />
+    <result column="COUNT_COMMS" jdbcType="INTEGER" property="countComms" />
+    <result column="COMMEND_SCORE" jdbcType="INTEGER" property="commendScore" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    DELETE FROM G_GOODS_REPORT
+    WHERE GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.goods.GoodsReport">
+    INSERT INTO G_GOODS_REPORT (GOODS_ID, MONTH_SALES, COUNT_SALES,
+      COUNT_COMMS, COMMEND_SCORE)
+    VALUES (#{goodsId,jdbcType=VARCHAR}, #{monthSales,jdbcType=INTEGER}, #{countSales,jdbcType=INTEGER},
+      #{countComms,jdbcType=INTEGER}, #{commendScore,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.goods.GoodsReport">
+    UPDATE G_GOODS_REPORT
+    SET MONTH_SALES = #{monthSales,jdbcType=INTEGER},
+      COUNT_SALES = #{countSales,jdbcType=INTEGER},
+      COUNT_COMMS = #{countComms,jdbcType=INTEGER},
+      COMMEND_SCORE = #{commendScore,jdbcType=INTEGER}
+    WHERE GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT GOODS_ID, MONTH_SALES, COUNT_SALES, COUNT_COMMS, COMMEND_SCORE
+    FROM G_GOODS_REPORT
+    WHERE GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </select>
+</mapper>

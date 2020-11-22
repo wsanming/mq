@@ -1,147 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goktech.olala.server.dao.goods.IndexArticleMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.goods.IndexArticle">
+    <id column="ARTICLE_ID" jdbcType="SMALLINT" property="articleId" />
+    <result column="ARTICLE_TITLE" jdbcType="VARCHAR" property="articleTitle" />
+    <result column="PREF_TITLE" jdbcType="VARCHAR" property="prefTitle" />
+    <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
+    <result column="AUTHOR" jdbcType="VARCHAR" property="author" />
+    <result column="ARTICLE_TYPE" jdbcType="INTEGER" property="articleType" />
+    <result column="ARTICLE_COLUMN" jdbcType="INTEGER" property="articleColumn" />
+    <result column="ARTICLE_SORT" jdbcType="INTEGER" property="articleSort" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="LINK_URL" jdbcType="VARCHAR" property="linkUrl" />
+    <result column="ALLOW_COMMENTS" jdbcType="INTEGER" property="allowComments" />
+    <result column="COMMENT_BEGIN_TIME" jdbcType="TIMESTAMP" property="commentBeginTime" />
+    <result column="COMMENT_END_TIME" jdbcType="TIMESTAMP" property="commentEndTime" />
+    <result column="CLICK_COUNT" jdbcType="INTEGER" property="clickCount" />
+    <result column="REVIEW_STATUS" jdbcType="INTEGER" property="reviewStatus" />
+    <result column="IS_ENABLED" jdbcType="INTEGER" property="isEnabled" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="ABSTRACTS" jdbcType="LONGVARCHAR" property="abstracts" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
 
-    <resultMap id="BaseResultMap" type="com.goktech.olala.core.resp.RespArticleVo">
-        <id column="ARTICLE_ID" jdbcType="SMALLINT" property="articleId" />
-        <result column="ARTICLE_TITLE" jdbcType="VARCHAR" property="articleTitle" />
-        <result column="PREF_TITLE" jdbcType="VARCHAR" property="prefTitle" />
-        <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
-        <result column="AUTHOR" jdbcType="VARCHAR" property="author" />
-        <result column="ARTICLE_TYPE" jdbcType="INTEGER" property="articleType" />
-        <result column="ARTICLE_COLUMN" jdbcType="INTEGER" property="articleColumn" />
-        <result column="ARTICLE_SORT" jdbcType="INTEGER" property="articleSort" />
-        <result column="SOURCE" jdbcType="VARCHAR" property="source" />
-        <result column="LINK_URL" jdbcType="VARCHAR" property="linkUrl" />
-        <result column="ALLOW_COMMENTS" jdbcType="INTEGER" property="allowComments" />
-        <result column="COMMENT_BEGIN_TIME" jdbcType="TIMESTAMP" property="commentBeginTime" />
-        <result column="COMMENT_END_TIME" jdbcType="TIMESTAMP" property="commentEndTime" />
-        <result column="CLICK_COUNT" jdbcType="INTEGER" property="clickCount" />
-        <result column="REVIEW_STATUS" jdbcType="INTEGER" property="reviewStatus" />
-        <result column="IS_ENABLED" jdbcType="INTEGER" property="isEnabled" />
-        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
-        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
-        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
-        <result column="ABSTRACTS" jdbcType="LONGVARCHAR" property="abstracts" />
-        <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-    </resultMap>
-
-    <select id="selectAll" resultMap="BaseResultMap">
-    SELECT ARTICLE_ID, ARTICLE_TITLE, PREF_TITLE, KEYWORDS, AUTHOR, ARTICLE_TYPE, ARTICLE_COLUMN,
-    ARTICLE_SORT, SOURCE, LINK_URL, ALLOW_COMMENTS, COMMENT_BEGIN_TIME, COMMENT_END_TIME,
-    CLICK_COUNT, REVIEW_STATUS, IS_ENABLED, CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY,
-    ABSTRACTS, CONTENT
-    FROM G_ARTICLE
-    </select>
-    <select id="selectByExample" parameterType="com.goktech.olala.core.req.ReqArticle" resultMap="BaseResultMap">
-        SELECT ARTICLE.ARTICLE_ID, ARTICLE.ARTICLE_TITLE, CONCAT(ARTICLE.ARTICLE_ID,',',ARTICLE.ARTICLE_TITLE) articleInfo, ARTICLE.PREF_TITLE,
-        ARTICLE.KEYWORDS, ARTICLE.AUTHOR, ARTICLE.ARTICLE_TYPE, ARTICLE.ARTICLE_COLUMN,ARTICLE.ARTICLE_SORT, ARTICLE.SOURCE,
-        ARTICLE.ABSTRACTS, ARTICLE.CONTENT, ARTICLE.LINK_URL, ARTICLE.ALLOW_COMMENTS, ARTICLE.COMMENT_BEGIN_TIME,
-        ARTICLE.COMMENT_END_TIME, ARTICLE.CLICK_COUNT, ARTICLE.REVIEW_STATUS, ARTICLE.IS_ENABLED,
-        ARTICLE.CREATE_TIME, ARTICLE.CREATE_BY, ARTICLE.UPDATE_TIME, ARTICLE.UPDATE_BY updateBy
-        FROM G_ARTICLE ARTICLE
-        <where>
-        <if test="reqArticle.articleId != null ">
-        AND ARTICLE.ARTICLE_ID = #{reqArticle.articleId}
-        </if>
-        <if test="reqArticle.articleTitle != null and reqArticle.articleTitle != ''">
-        AND ARTICLE.ARTICLE_TITLE LIKE '%${reqArticle.articleTitle}%'
-        </if>
-        <if test="reqArticle.keywords != null and reqArticle.keywords != ''">
-        AND ARTICLE.KEYWORDS LIKE '%${reqArticle.keywords}%'
-        </if>
-        <if test="reqArticle.articleType != null ">
-        AND ARTICLE.ARTICLE_TYPE = #{reqArticle.articleType}
-        </if>
-        <if test="reqArticle.articleColumn != null">
-        AND ARTICLE.ARTICLE_COLUMN = #{reqArticle.articleColumn}
-        </if>
-        <if test="reqArticle.reviewStatus != null ">
-        AND ARTICLE.REVIEW_STATUS = #{reqArticle.reviewStatus}
-        </if>
-        <if test="reqArticle.isEnabled != null">
-        AND ARTICLE.IS_ENABLED = #{reqArticle.isEnabled}
-        </if>
-        </where>
-        ORDER BY ARTICLE.UPDATE_TIME DESC
-    </select>
-
-    <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.goods.IndexArticle"
-            useGeneratedKeys="true" keyProperty="articleId" keyColumn="ARTICLE_ID">
-        INSERT INTO G_ARTICLE (ARTICLE_TITLE,
-        <if test="prefTitle != null and prefTitle != ''">
-            PREF_TITLE,
-        </if>
-        KEYWORDS,
-        <if test="author != null and author != ''">
-            AUTHOR,
-        </if>
-        ARTICLE_TYPE,
-        ARTICLE_COLUMN,
-        ARTICLE_SORT,
-        <if test="source != null and source != ''">
-            SOURCE,
-        </if>
-        <if test="linkUrl != null and linkUrl != ''">
-            LINK_URL,
-        </if>
-        ALLOW_COMMENTS,
-        <if test="commentBeginTime != null">
-            COMMENT_BEGIN_TIME,
-        </if>
-        <if test="commentEndTime != null">
-            COMMENT_END_TIME,
-        </if>
-        <if test="abstracts != null and abstracts != ''">
-            ABSTRACTS,
-        </if>
-        <if test="content != null and content != ''">
-            CONTENT,
-        </if>
-        IS_ENABLED, CREATE_TIME, CREATE_BY,
-        UPDATE_TIME, UPDATE_BY)
-        VALUES (#{articleTitle,jdbcType=VARCHAR},
-        <if test="prefTitle != null and prefTitle != ''">
-            #{prefTitle,jdbcType=VARCHAR},
-        </if>
-        #{keywords,jdbcType=VARCHAR},
-        <if test="author != null and author != ''">
-            #{author,jdbcType=VARCHAR},
-        </if>
-        #{articleType,jdbcType=INTEGER},
-        #{articleColumn,jdbcType=INTEGER},
-        #{articleSort,jdbcType=INTEGER},
-        <if test="source != null and source != ''">
-            #{source,jdbcType=VARCHAR},
-        </if>
-        <if test="linkUrl != null and linkUrl != ''">
-            #{linkUrl,jdbcType=VARCHAR},
-        </if>
-        #{allowComments,jdbcType=INTEGER},
-        <if test="commentBeginTime != null">
-            #{commentBeginTime,jdbcType=TIMESTAMP},
-        </if>
-        <if test="commentEndTime != null">
-            #{commentEndTime,jdbcType=TIMESTAMP},
-        </if>
-        <if test="abstracts != null and abstracts != ''">
-            #{abstracts,jdbcType=LONGVARCHAR},
-        </if>
-        <if test="content != null and content != ''">
-            #{content,jdbcType=LONGVARCHAR},
-        </if>
-        #{isEnabled,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR},
-        #{updateTime,jdbcType=TIMESTAMP},#{updateBy,jdbcType=VARCHAR})
-    </insert>
-
-
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     DELETE FROM G_ARTICLE
     WHERE ARTICLE_ID = #{articleId,jdbcType=SMALLINT}
   </delete>
 
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.goods.IndexArticle"
+          useGeneratedKeys="true" keyProperty="articleId" keyColumn="ARTICLE_ID">
+    INSERT INTO G_ARTICLE (ARTICLE_TITLE,
+    <if test="prefTitle != null and prefTitle != ''">
+      PREF_TITLE,
+    </if>
+      KEYWORDS,
+    <if test="author != null and author != ''">
+      AUTHOR,
+    </if>
+      ARTICLE_TYPE,
+      ARTICLE_COLUMN,
+      ARTICLE_SORT,
+    <if test="source != null and source != ''">
+      SOURCE,
+    </if>
+    <if test="linkUrl != null and linkUrl != ''">
+      LINK_URL,
+    </if>
+      ALLOW_COMMENTS,
+    <if test="commentBeginTime != null">
+      COMMENT_BEGIN_TIME,
+    </if>
+    <if test="commentEndTime != null">
+      COMMENT_END_TIME,
+    </if>
+    <if test="abstracts != null and abstracts != ''">
+      ABSTRACTS,
+    </if>
+    <if test="content != null and content != ''">
+      CONTENT,
+    </if>
+      IS_ENABLED, CREATE_TIME, CREATE_BY,
+      UPDATE_TIME, UPDATE_BY)
+    VALUES (#{articleTitle,jdbcType=VARCHAR},
+    <if test="prefTitle != null and prefTitle != ''">
+      #{prefTitle,jdbcType=VARCHAR},
+    </if>
+      #{keywords,jdbcType=VARCHAR},
+    <if test="author != null and author != ''">
+      #{author,jdbcType=VARCHAR},
+    </if>
+    #{articleType,jdbcType=INTEGER},
+    #{articleColumn,jdbcType=INTEGER},
+    #{articleSort,jdbcType=INTEGER},
+    <if test="source != null and source != ''">
+      #{source,jdbcType=VARCHAR},
+    </if>
+    <if test="linkUrl != null and linkUrl != ''">
+      #{linkUrl,jdbcType=VARCHAR},
+    </if>
+    #{allowComments,jdbcType=INTEGER},
+    <if test="commentBeginTime != null">
+      #{commentBeginTime,jdbcType=TIMESTAMP},
+    </if>
+    <if test="commentEndTime != null">
+      #{commentEndTime,jdbcType=TIMESTAMP},
+    </if>
+    <if test="abstracts != null and abstracts != ''">
+      #{abstracts,jdbcType=LONGVARCHAR},
+    </if>
+    <if test="content != null and content != ''">
+      #{content,jdbcType=LONGVARCHAR},
+    </if>
+    #{isEnabled,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR},
+    #{updateTime,jdbcType=TIMESTAMP},#{updateBy,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.goods.IndexArticle">
+    UPDATE G_ARTICLE
+    <set>
+      <if test="articleTitle != null and articleTitle != ''">
+        ARTICLE_TITLE = #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="prefTitle != null and prefTitle != ''">
+        PREF_TITLE = #{prefTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null and keywords != ''">
+        KEYWORDS = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null and author != ''">
+        AUTHOR = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="articleType != null">
+        ARTICLE_TYPE = #{articleType,jdbcType=INTEGER},
+      </if>
+      <if test="articleColumn != null">
+        ARTICLE_COLUMN = #{articleColumn,jdbcType=INTEGER},
+      </if>
+      <if test="articleSort != null">
+        ARTICLE_SORT = #{articleSort,jdbcType=INTEGER},
+      </if>
+      <if test="source != null and source != ''">
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="linkUrl != null and linkUrl != ''">
+        LINK_URL = #{linkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="allowComments != null">
+        ALLOW_COMMENTS = #{allowComments,jdbcType=INTEGER},
+      </if>
+      <if test="commentBeginTime != null">
+        COMMENT_BEGIN_TIME = #{commentBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commentEndTime != null">
+        COMMENT_END_TIME = #{commentEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="abstracts != null and abstracts != ''">
+        ABSTRACTS = #{abstracts,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null and content != ''">
+        CONTENT = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reviewStatus != null">
+        REVIEW_STATUS = #{reviewStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isEnabled != null">
+        IS_ENABLED = #{isEnabled,jdbcType=INTEGER},
+      </if>
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{updateBy,jdbcType=VARCHAR}
+    </set>
+    WHERE ARTICLE_ID = #{articleId,jdbcType=SMALLINT}
+  </update>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT ARTICLE_ID, ARTICLE_TITLE, PREF_TITLE, KEYWORDS, AUTHOR, ARTICLE_TYPE, ARTICLE_COLUMN,
     ARTICLE_SORT, SOURCE, LINK_URL, ALLOW_COMMENTS, COMMENT_BEGIN_TIME, COMMENT_END_TIME,
     CLICK_COUNT, REVIEW_STATUS, IS_ENABLED, CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY,
@@ -150,62 +165,11 @@
     WHERE ARTICLE_ID = #{articleId,jdbcType=SMALLINT}
   </select>
 
-
-    <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.goods.IndexArticle">
-        UPDATE G_ARTICLE
-        <set>
-            <if test="articleTitle != null and articleTitle != ''">
-                ARTICLE_TITLE = #{articleTitle,jdbcType=VARCHAR},
-            </if>
-            <if test="prefTitle != null and prefTitle != ''">
-                PREF_TITLE = #{prefTitle,jdbcType=VARCHAR},
-            </if>
-            <if test="keywords != null and keywords != ''">
-                KEYWORDS = #{keywords,jdbcType=VARCHAR},
-            </if>
-            <if test="author != null and author != ''">
-                AUTHOR = #{author,jdbcType=VARCHAR},
-            </if>
-            <if test="articleType != null">
-                ARTICLE_TYPE = #{articleType,jdbcType=INTEGER},
-            </if>
-            <if test="articleColumn != null">
-                ARTICLE_COLUMN = #{articleColumn,jdbcType=INTEGER},
-            </if>
-            <if test="articleSort != null">
-                ARTICLE_SORT = #{articleSort,jdbcType=INTEGER},
-            </if>
-            <if test="source != null and source != ''">
-                SOURCE = #{source,jdbcType=VARCHAR},
-            </if>
-            <if test="linkUrl != null and linkUrl != ''">
-                LINK_URL = #{linkUrl,jdbcType=VARCHAR},
-            </if>
-            <if test="allowComments != null">
-                ALLOW_COMMENTS = #{allowComments,jdbcType=INTEGER},
-            </if>
-            <if test="commentBeginTime != null">
-                COMMENT_BEGIN_TIME = #{commentBeginTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="commentEndTime != null">
-                COMMENT_END_TIME = #{commentEndTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="abstracts != null and abstracts != ''">
-                ABSTRACTS = #{abstracts,jdbcType=LONGVARCHAR},
-            </if>
-            <if test="content != null and content != ''">
-                CONTENT = #{content,jdbcType=LONGVARCHAR},
-            </if>
-            <if test="reviewStatus != null">
-                REVIEW_STATUS = #{reviewStatus,jdbcType=INTEGER},
-            </if>
-            <if test="isEnabled != null">
-                IS_ENABLED = #{isEnabled,jdbcType=INTEGER},
-            </if>
-            UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
-            UPDATE_BY = #{updateBy,jdbcType=VARCHAR}
-        </set>
-        WHERE ARTICLE_ID = #{articleId,jdbcType=SMALLINT}
-    </update>
-
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT ARTICLE_ID, ARTICLE_TITLE, PREF_TITLE, KEYWORDS, AUTHOR, ARTICLE_TYPE, ARTICLE_COLUMN,
+    ARTICLE_SORT, SOURCE, LINK_URL, ALLOW_COMMENTS, COMMENT_BEGIN_TIME, COMMENT_END_TIME,
+    CLICK_COUNT, REVIEW_STATUS, IS_ENABLED, CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY,
+    ABSTRACTS, CONTENT
+    FROM G_ARTICLE
+  </select>
 </mapper>

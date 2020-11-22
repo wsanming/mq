@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.goods.GoodsMapper">
+
+    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.goods.Goods">
+        <id column="GOODS_ID" jdbcType="VARCHAR" property="goodsId"/>
+        <result column="GOODS_SN" jdbcType="VARCHAR" property="goodsSn"/>
+        <result column="GOODS_NAME" jdbcType="VARCHAR" property="goodsName"/>
+        <result column="GOODS_TITLE" jdbcType="VARCHAR" property="goodsTitle"/>
+        <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords"/>
+        <result column="CATY_ID" jdbcType="VARCHAR" property="catyId"/>
+        <result column="CATY_SN" jdbcType="VARCHAR" property="catySn"/>
+        <result column="BUSINESS_SN" jdbcType="VARCHAR" property="businessSn"/>
+        <result column="EFFECTIVE_DATE" jdbcType="TIMESTAMP" property="effectiveDate"/>
+        <result column="EXPIRY_DAYS" jdbcType="INTEGER" property="expiryDays"/>
+        <result column="GOODS_BRIEF" jdbcType="VARCHAR" property="goodsBrief"/>
+        <result column="MARKET_PRICE" jdbcType="INTEGER" property="marketPrice"/>
+        <result column="DISCOUNT" jdbcType="INTEGER" property="discount"/>
+        <result column="SHOP_PRICE" jdbcType="INTEGER" property="shopPrice"/>
+        <result column="COST_PRICE" jdbcType="INTEGER" property="costPrice"/>
+        <result column="PROMOTE_PRICE" jdbcType="INTEGER" property="promotePrice"/>
+        <result column="PROMOTE_START_DATE" jdbcType="TIMESTAMP" property="promoteStartDate"/>
+        <result column="PROMOTE_END_DATE" jdbcType="TIMESTAMP" property="promoteEndDate"/>
+        <result column="COUPON_SN" jdbcType="VARCHAR" property="couponSn"/>
+        <result column="IS_DEL" jdbcType="INTEGER" property="isDel"/>
+        <result column="IS_ONSALE" jdbcType="INTEGER" property="isOnSale"/>
+        <result column="IS_COMMENT" jdbcType="INTEGER" property="isComment"/>
+        <result column="SORT_ORL" jdbcType="INTEGER" property="sortOrl"/>
+        <result column="SHIP_FEE" jdbcType="INTEGER" property="shipFee"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="GOODS_DESC" jdbcType="LONGVARCHAR" property="goodsDesc"/>
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    DELETE FROM G_GOODS
+    WHERE GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+    </delete>
+
+    <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.goods.Goods">
+        INSERT INTO G_GOODS
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            GOODS_ID,
+            GOODS_SN,
+            GOODS_NAME,
+            <if test="goodsTitle != null and goodsTitle != ''">
+                GOODS_TITLE,
+            </if>
+            KEYWORDS,
+            <if test="catyId != null and catyId != ''">
+                CATY_ID,
+            </if>
+            <if test="catySn != null and catySn != ''">
+                CATY_SN,
+            </if>
+            <if test="businessSn != null and businessSn != ''">
+                BUSINESS_SN,
+            </if>
+            <if test="effectiveDate != null">
+                EFFECTIVE_DATE,
+            </if>
+            <if test="expiryDays != null">
+                EXPIRY_DAYS,
+            </if>
+            <if test="goodsBrief != null and goodsBrief != ''">
+                GOODS_BRIEF,
+            </if>
+            <if test="marketPrice != null">
+                MARKET_PRICE,
+            </if>
+            <if test="discount != null">
+                DISCOUNT,
+            </if>
+            <if test="costPrice != null">
+                COST_PRICE,
+            </if>
+            <if test="shopPrice != null">
+                SHOP_PRICE,
+            </if>
+            <if test="promotePrice != null">
+                PROMOTE_PRICE,
+            </if>
+            <if test="promoteStartDate != null">
+                PROMOTE_START_DATE,
+            </if>
+            <if test="promoteEndDate != null">
+                PROMOTE_END_DATE,
+            </if>
+            <if test="couponSn != null and couponSn != ''">
+                COUPON_SN,
+            </if>
+            <if test="isDel != null">
+                IS_DEL,
+            </if>
+            <if test="isOnSale != null">
+                IS_ONSALE,
+            </if>
+            <if test="isComment != null">
+                IS_COMMENT,
+            </if>
+            <if test="sortOrl != null">
+                SORT_ORL,
+            </if>
+            <if test="shipFee != null">
+                SHIP_FEE,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            CREATE_BY,
+            <if test="updateTime != null">
+                UPDATE_TIME,
+            </if>
+            UPDATE_BY,
+            <if test="goodsDesc != null and goodsDesc != ''">
+                GOODS_DESC,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{goodsId,jdbcType=VARCHAR},
+            #{goodsSn,jdbcType=VARCHAR},
+            #{goodsName,jdbcType=VARCHAR},
+            <if test="goodsTitle != null and goodsTitle != ''">
+                #{goodsTitle,jdbcType=VARCHAR},
+            </if>
+            #{keywords,jdbcType=VARCHAR},
+            <if test="catyId != null and catyId != ''">
+                #{catyId,jdbcType=VARCHAR},
+            </if>
+            <if test="catySn != null and catySn != ''">
+                #{catySn,jdbcType=VARCHAR},
+            </if>
+            <if test="businessSn != null and businessSn != ''">
+                #{businessSn,jdbcType=VARCHAR},
+            </if>
+            <if test="effectiveDate != null">
+                #{effectiveDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="expiryDays != null">
+                #{expiryDays,jdbcType=INTEGER},
+            </if>
+            <if test="goodsBrief != null and goodsBrief != ''">
+                #{goodsBrief,jdbcType=VARCHAR},
+            </if>
+            <if test="marketPrice != null">
+                #{marketPrice,jdbcType=INTEGER},
+            </if>
+            <if test="discount != null">
+                #{discount,jdbcType=INTEGER},
+            </if>
+            <if test="costPrice != null">
+                #{costPrice,jdbcType=INTEGER},
+            </if>
+            <if test="shopPrice != null">
+                #{shopPrice,jdbcType=INTEGER},
+            </if>
+            <if test="promotePrice != null">
+                #{promotePrice,jdbcType=INTEGER},
+            </if>
+            <if test="promoteStartDate != null">
+                #{promoteStartDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="promoteEndDate != null">
+                #{promoteEndDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="couponSn != null and couponSn != ''">
+                #{couponSn,jdbcType=VARCHAR},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=INTEGER},
+            </if>
+            <if test="isOnSale != null">
+                #{isOnSale,jdbcType=INTEGER},
+            </if>
+            <if test="isComment != null">
+                #{isComment,jdbcType=INTEGER},
+            </if>
+            <if test="sortOrl != null">
+                #{sortOrl,jdbcType=INTEGER},
+            </if>
+            <if test="shipFee != null">
+                #{shipFee,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            #{createBy,jdbcType=VARCHAR},
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            #{updateBy,jdbcType=VARCHAR},
+            <if test="goodsDesc != null  and goodsDesc != ''">
+                #{goodsDesc,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.goods.Goods">
+    UPDATE G_GOODS
+    <set>
+        <if test="goodsName != null and goodsName != ''">
+            GOODS_NAME = #{goodsName,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsTitle != null and goodsTitle != ''">
+            GOODS_TITLE = #{goodsTitle,jdbcType=VARCHAR},
+        </if>
+        <if test="keywords != null and keywords != ''">
+            KEYWORDS = #{keywords,jdbcType=VARCHAR},
+        </if>
+        <if test="businessSn != null and businessSn != ''">
+            BUSINESS_SN = #{businessSn,jdbcType=VARCHAR},
+        </if>
+        <if test="effectiveDate != null">
+            EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="expiryDays != null">
+            EXPIRY_DAYS = #{expiryDays,jdbcType=INTEGER},
+        </if>
+        <if test="goodsBrief != null and goodsBrief != ''">
+            GOODS_BRIEF = #{goodsBrief,jdbcType=VARCHAR},
+        </if>
+        <if test="marketPrice != null">
+            MARKET_PRICE = #{marketPrice,jdbcType=INTEGER},
+        </if>
+        <if test="discount != null">
+            DISCOUNT = #{discount,jdbcType=INTEGER},
+        </if>
+        <if test="costPrice != null">
+            COST_PRICE = #{costPrice,jdbcType=INTEGER},
+        </if>
+        <if test="shopPrice != null">
+            SHOP_PRICE = #{shopPrice,jdbcType=INTEGER},
+        </if>
+        <if test="promotePrice != null">
+            PROMOTE_PRICE = #{promotePrice,jdbcType=INTEGER},
+        </if>
+        <if test="promoteStartDate != null">
+            PROMOTE_START_DATE = #{promoteStartDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="promoteEndDate != null">
+            PROMOTE_END_DATE = #{promoteEndDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="couponSn != null and couponSn != ''">
+            COUPON_SN = #{couponSn,jdbcType=VARCHAR},
+        </if>
+        <if test="isOnSale != null">
+            IS_ONSALE = #{isOnSale,jdbcType=INTEGER},
+        </if>
+        <if test="isComment != null">
+            IS_COMMENT = #{isComment,jdbcType=INTEGER},
+        </if>
+        <if test="sortOrl != null">
+            SORT_ORL = #{sortOrl,jdbcType=INTEGER},
+        </if>
+        <if test="shipFee != null">
+            SHIP_FEE = #{shipFee,jdbcType=INTEGER},
+        </if>
+        <if test="goodsDesc != null and goodsDesc != ''">
+            GOODS_DESC = #{goodsDesc,jdbcType=LONGVARCHAR},
+        </if>
+        <if test="updateTime != null">
+            UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+        </if>
+        UPDATE_BY = #{updateBy,jdbcType=VARCHAR}
+    </set>
+    where GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select GOODS_ID, GOODS_SN, GOODS_NAME, GOODS_TITLE, KEYWORDS, CATY_ID, CATY_SN, BUSINESS_SN, EFFECTIVE_DATE,
+    EXPIRY_DAYS, GOODS_BRIEF, MARKET_PRICE, DISCOUNT, SHOP_PRICE, COST_PRICE, PROMOTE_PRICE, PROMOTE_START_DATE,
+    PROMOTE_END_DATE, COUPON_SN, IS_DEL, IS_ONSALE, IS_COMMENT, SORT_ORL, SHIP_FEE, CREATE_TIME, CREATE_BY, UPDATE_TIME,
+    UPDATE_BY, GOODS_DESC
+    FROM G_GOODS
+    WHERE GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+    SELECT GOODS_ID, GOODS_SN, GOODS_NAME, GOODS_TITLE, KEYWORDS, CATY_ID, CATY_SN, BUSINESS_SN, EFFECTIVE_DATE,
+    EXPIRY_DAYS, GOODS_BRIEF, MARKET_PRICE, DISCOUNT, SHOP_PRICE, COST_PRICE, PROMOTE_PRICE, PROMOTE_START_DATE,
+    PROMOTE_END_DATE, COUPON_SN, IS_DEL, IS_ONSALE, IS_COMMENT, SORT_ORL, SHIP_FEE, CREATE_TIME, CREATE_BY, UPDATE_TIME,
+    UPDATE_BY, GOODS_DESC
+    FROM G_GOODS
+  </select>
+
+    <update id="updateByExample" parameterType="com.goktech.olala.server.pojo.goods.Goods">
+    UPDATE G_GOODS SET
+      GOODS_NAME = #{goodsName,jdbcType=VARCHAR},
+      KEYWORDS = #{keywords,jdbcType=VARCHAR},
+      CATY_ID = #{catyId,jdbcType=VARCHAR},
+      BUSINESS_ID = #{businessId,jdbcType=VARCHAR},
+      EXPIRY_DAYS = #{expiryDays,jdbcType=INTEGER},
+      GOODS_BRIEF = #{goodsBrief,jdbcType=VARCHAR},
+      MARKET_PRICE = #{marketPrice,jdbcType=INTEGER}
+    WHERE GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </update>
+
+</mapper>

@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * @author sanming
+ * @Classname ICollectService
+ * @Description
  */
 public interface ICollectService {
 
@@ -26,14 +28,5 @@ public interface ICollectService {
      * @throws Exception
      */
     RespCollectVo saveCollect(ReqCollect reqCollect) throws Exception;
-
-    /**
-     * 取消收藏
-     *
-     * @param reqCollect
-     * @return
-     * @throws Exception
-     */
-    int cancelCollect(ReqCollect reqCollect) throws Exception;
 
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.goods.BusinessMapper">
+    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.goods.Business">
+        <id column="BUSINESS_ID" jdbcType="VARCHAR" property="businessId"/>
+        <result column="BUSINESS_NAME" jdbcType="VARCHAR" property="businessName"/>
+        <result column="BUSINESS_CODE" jdbcType="VARCHAR" property="businessCode"/>
+        <result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
+        <result column="SEND_RANGE" jdbcType="VARCHAR" property="sendRange"/>
+        <result column="FANS_COUNT" jdbcType="INTEGER" property="fansCount"/>
+        <result column="SCORE" jdbcType="INTEGER" property="score"/>
+        <result column="BUSINESS_LEVEL" jdbcType="BIT" property="businessLevel"/>
+        <result column="BUSINESS_TYPE" jdbcType="VARCHAR" property="businessType"/>
+        <result column="TERMINAL_CODE" jdbcType="VARCHAR" property="terminalCode"/>
+        <result column="STATUS" jdbcType="BIT" property="status"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy"/>
+    </resultMap>
+
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT BUSINESS_ID, BUSINESS_NAME, BUSINESS_CODE, ADDRESS, SEND_RANGE, FANS_COUNT,
+    SCORE, BUSINESS_LEVEL, BUSINESS_TYPE, TERMINAL_CODE, STATUS, CREATE_TIME, CREATE_BY, 
+    UPDATE_TIME, UPDATE_BY
+    FROM G_BUSINESS
+    WHERE BUSINESS_ID = #{businessId,jdbcType=VARCHAR}
+  </select>
+</mapper>

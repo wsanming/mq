@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.goods.GoodsPictureMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.goods.GoodsPicture">
+    <id column="PICTURE_ID" jdbcType="BIGINT" property="pictureId" />
+    <result column="PICTURE_TITLE" jdbcType="VARCHAR" property="pictureTitle" />
+    <result column="PREF_TITLE" jdbcType="VARCHAR" property="prefTitle" />
+    <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
+    <result column="RELATION_ID" jdbcType="VARCHAR" property="relationId" />
+    <result column="PIC_CATEGORY" jdbcType="BIGINT" property="picCategory" />
+    <result column="RELATION_TYPE" jdbcType="INTEGER" property="relationType" />
+    <result column="AUTHOR" jdbcType="VARCHAR" property="author" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="IS_ALLOW_COMMENT" jdbcType="INTEGER" property="isAllowComment" />
+    <result column="THUMB_IMG" jdbcType="VARCHAR" property="thumbImg" />
+    <result column="REAL_IMG" jdbcType="VARCHAR" property="realImg" />
+    <result column="ORIGINAL_IMG" jdbcType="VARCHAR" property="originalImg" />
+    <result column="LINK_URL" jdbcType="VARCHAR" property="linkUrl" />
+    <result column="WIDTH" jdbcType="VARCHAR" property="width" />
+    <result column="HEIGHT" jdbcType="VARCHAR" property="height" />
+    <result column="SORT_ORL" jdbcType="INTEGER" property="sortOrl" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="DEPLOY_TIME" jdbcType="TIMESTAMP" property="deployTime" />
+    <result column="OUTLINE_TIME" jdbcType="TIMESTAMP" property="outlineTime" />
+    <result column="IS_MASTER" jdbcType="INTEGER" property="isMaster" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="ABSTRACTS" jdbcType="LONGVARCHAR" property="abstracts" />
+    <result column="PIC_DESC" jdbcType="LONGVARCHAR" property="picDesc" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    DELETE FROM G_PICTURE
+    WHERE PICTURE_ID = #{pictureId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.goods.GoodsPicture">
+    INSERT INTO G_PICTURE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pictureTitle != null and pictureTitle != ''">
+        PICTURE_TITLE,
+      </if>
+      <if test="prefTitle != null and prefTitle != ''">
+        PREF_TITLE,
+      </if>
+      <if test="keywords != null and keywords != ''">
+        KEYWORDS,
+      </if>
+      <if test="relationId != null and relationId != ''">
+        RELATION_ID,
+      </if>
+      <if test="picCategory != null">
+        PIC_CATEGORY,
+      </if>
+      <if test="relationType != null">
+        RELATION_TYPE,
+      </if>
+      <if test="author != null and author != ''">
+        AUTHOR,
+      </if>
+      <if test="source != null and source != ''">
+        SOURCE,
+      </if>
+      <if test="isAllowComment != null">
+        IS_ALLOW_COMMENT,
+      </if>
+      <if test="thumbImg != null and thumbImg != '' ">
+        THUMB_IMG,
+      </if>
+      <if test="realImg != null and realImg != '' ">
+        REAL_IMG,
+      </if>
+      <if test="originalImg != null and originalImg != '' ">
+        ORIGINAL_IMG,
+      </if>
+      <if test="linkUrl != null and linkUrl != ''">
+        LINK_URL,
+      </if>
+      <if test="width != null">
+        WIDTH,
+      </if>
+      <if test="height != null">
+        HEIGHT,
+      </if>
+      <if test="sortOrl != null">
+        SORT_ORL,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="deployTime != null ">
+        DEPLOY_TIME,
+      </if>
+      <if test="outlineTime != null ">
+        OUTLINE_TIME,
+      </if>
+      <if test="isMaster != null">
+        IS_MASTER,
+      </if>
+      <if test="abstracts != null and abstracts != ''">
+        ABSTRACTS,
+      </if>
+      <if test="picDesc != null and picDesc != ''">
+        PIC_DESC,
+      </if>
+      CREATE_TIME,
+      CREATE_BY,
+      UPDATE_TIME,
+      UPDATE_BY,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pictureTitle != null and pictureTitle != ''">
+        #{pictureTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="prefTitle != null and prefTitle != ''">
+        #{prefTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null and keywords != ''">
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="relationId != null and relationId != ''">
+        #{relationId,jdbcType=VARCHAR},
+      </if>
+      <if test="picCategory != null">
+        #{picCategory,jdbcType=BIGINT},
+      </if>
+      <if test="relationType != null">
+        #{relationType,jdbcType=INTEGER},
+      </if>
+      <if test="author != null and author != ''">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null and source != ''">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="isAllowComment != null">
+        #{isAllowComment,jdbcType=INTEGER},
+      </if>
+      <if test="thumbImg != null and thumbImg != '' ">
+        #{thumbImg,jdbcType=VARCHAR},
+      </if>
+      <if test="realImg != null and realImg != '' ">
+        #{realImg,jdbcType=VARCHAR},
+      </if>
+      <if test="originalImg != null and originalImg != '' ">
+        #{originalImg,jdbcType=VARCHAR},
+      </if>
+      <if test="linkUrl != null and linkUrl != ''">
+        #{linkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null">
+        #{width,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOrl != null">
+        #{sortOrl,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="deployTime != null ">
+        #{deployTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outlineTime != null ">
+        #{outlineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isMaster != null">
+        #{isMaster,jdbcType=INTEGER},
+      </if>
+      <if test="abstracts != null and abstracts != '' ">
+        #{abstracts,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="picDesc != null and picDesc != '' ">
+        #{picDesc,jdbcType=LONGVARCHAR},
+      </if>
+      #{createTime,jdbcType=TIMESTAMP},
+      #{createBy,jdbcType=VARCHAR},
+      #{updateTime,jdbcType=TIMESTAMP},
+      #{updateBy,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.goods.GoodsPicture">
+    UPDATE G_PICTURE
+    <set>
+      <if test="pictureTitle != null and pictureTitle != ''">
+        PICTURE_TITLE = #{pictureTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="prefTitle != null and prefTitle != ''">
+        PREF_TITLE = #{prefTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null and keywords != ''">
+        KEYWORDS = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="relationId != null and relationId != ''">
+        RELATION_ID = #{relationId,jdbcType=VARCHAR},
+      </if>
+      <if test="picCategory != null">
+        PIC_CATEGORY = #{picCategory,jdbcType=BIGINT},
+      </if>
+      <if test="relationType != null">
+        RELATION_TYPE = #{relationType,jdbcType=INTEGER},
+      </if>
+      <if test="author != null and author != ''">
+        AUTHOR = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null and source != ''">
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="isAllowComment != null">
+        IS_ALLOW_COMMENT = #{isAllowComment,jdbcType=INTEGER},
+      </if>
+      <if test="thumbImg != null and thumbImg != '' ">
+        THUMB_IMG = #{thumbImg,jdbcType=VARCHAR},
+      </if>
+      <if test="realImg != null and realImg != '' ">
+        REAL_IMG = #{realImg,jdbcType=VARCHAR},
+      </if>
+      <if test="originalImg != null and originalImg != '' ">
+        ORIGINAL_IMG = #{originalImg,jdbcType=VARCHAR},
+      </if>
+      <if test="linkUrl != null and linkUrl != ''">
+        LINK_URL = #{linkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null">
+        WIDTH = #{width,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        HEIGHT = #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOrl != null">
+        SORT_ORL = #{sortOrl,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="deployTime != null ">
+        DEPLOY_TIME = #{deployTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outlineTime != null ">
+        OUTLINE_TIME = #{outlineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isMaster != null">
+        IS_MASTER = #{isMaster,jdbcType=INTEGER},
+      </if>
+      <if test="abstracts != null and abstracts != ''">
+        ABSTRACTS = #{abstracts,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="picDesc != null and picDesc != ''">
+        PIC_DESC = #{picDesc,jdbcType=LONGVARCHAR},
+      </if>
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{updateBy,jdbcType=VARCHAR}
+    </set>
+    WHERE PICTURE_ID = #{pictureId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT PICTURE_ID, PICTURE_TITLE, PREF_TITLE, KEYWORDS, RELATION_ID, PIC_CATEGORY,
+    RELATION_TYPE, AUTHOR, SOURCE, IS_ALLOW_COMMENT, THUMB_IMG, REAL_IMG, ORIGINAL_IMG,
+    LINK_URL, WIDTH, HEIGHT, SORT_ORL, STATUS, DEPLOY_TIME, OUTLINE_TIME, IS_MASTER,
+    CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY, ABSTRACTS, PIC_DESC
+    FROM G_PICTURE
+    WHERE PICTURE_ID = #{pictureId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT PICTURE_ID, PICTURE_TITLE, PREF_TITLE, KEYWORDS, RELATION_ID, PIC_CATEGORY,
+    RELATION_TYPE, AUTHOR, SOURCE, IS_ALLOW_COMMENT, THUMB_IMG, REAL_IMG, ORIGINAL_IMG,
+    LINK_URL, WIDTH, HEIGHT, SORT_ORL, STATUS, DEPLOY_TIME, OUTLINE_TIME, IS_MASTER,
+    CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY, ABSTRACTS, PIC_DESC
+    FROM G_PICTURE
+  </select>
+</mapper>

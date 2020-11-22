@@ -41,18 +41,16 @@ public class IndexInfoController {
         List<RespArticleVo> respArticleVoList = ctmIndexService.queryNews(new ReqArticle());
         view.addObject("articleVoList", respArticleVoList);
         List<IndexAdvers> ctmAdverts = ctmIndexService.queryAvders();
-        view.addObject("ctmAdverts",ctmAdverts);
-        System.out.println("--------"+ctmAdverts);
+        view.addObject("ctmAdverts", ctmAdverts);
         List<GoodsActivit> indexActivities = ctmIndexService.queryHotActivity();
         view.addObject("indexActivities", indexActivities);
-        System.out.println("******"+indexActivities);
         List<RespGoodsCategory> categoryList = goodsService.beTreeCategory();
-        if(categoryList != null){
+        if (categoryList != null) {
             ReqGoodsBrand reqGoodsBrand = new ReqGoodsBrand();
-            for (RespGoodsCategory category : categoryList){
+            for (RespGoodsCategory category : categoryList) {
                 reqGoodsBrand.setCategoryId(category.getCategoryId());
                 List<RespGoodsBrandVo> brandVos = goodsService.queryGoodsBrandByParam(reqGoodsBrand);
-                if(brandVos != null){
+                if (brandVos != null) {
                     category.setBrandList(brandVos);
                 }
             }

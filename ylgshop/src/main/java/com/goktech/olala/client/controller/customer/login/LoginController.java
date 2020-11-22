@@ -22,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
  * @Classname LoginController
  * @Description 登录、注册、退出登录
  * @Date 2020/9/29 13:56
- * @Created by sanming
  */
 
 @Controller

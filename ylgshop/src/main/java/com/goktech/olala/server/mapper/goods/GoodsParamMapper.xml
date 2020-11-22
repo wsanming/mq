@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.goods.GoodsParamMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.goods.GoodsParam">
+    <result column="GOODS_ID" jdbcType="VARCHAR" property="goodsId" />
+    <result column="BRAND_ID" jdbcType="INTEGER" property="brandId" />
+    <result column="FOOD_TASTE" jdbcType="VARCHAR" property="foodTaste" />
+    <result column="WEIGHT" jdbcType="INTEGER" property="weight" />
+    <result column="LENGTH" jdbcType="INTEGER" property="length" />
+    <result column="SIZE" jdbcType="VARCHAR" property="size" />
+    <result column="COLOR" jdbcType="VARCHAR" property="color" />
+    <result column="PACKAGE_TYPE" jdbcType="VARCHAR" property="packageType" />
+    <result column="STORAGE_TYPE" jdbcType="VARCHAR" property="storageType" />
+    <result column="SOURCE_ADDR" jdbcType="VARCHAR" property="sourceAddr" />
+    <result column="SOURCE_SUPPLIER" jdbcType="VARCHAR" property="sourceSupplier" />
+    <result column="PRODUCE_ADDR" jdbcType="VARCHAR" property="produceAddr" />
+    <result column="INGREDIENTS" jdbcType="VARCHAR" property="ingredients" />
+    <result column="SPECS" jdbcType="VARCHAR" property="specs" />
+    <result column="PRO_STANDARD" jdbcType="VARCHAR" property="proStandard" />
+    <result column="PRO_LICENSE_NO" jdbcType="VARCHAR" property="proLicenseNo" />
+    <result column="EAT_METHOD" jdbcType="VARCHAR" property="eatMethod" />
+    <result column="CLICK_COUNT" jdbcType="INTEGER" property="clickCount" />
+    <result column="IS_ALONE_SALE" jdbcType="INTEGER" property="isAloneSale" />
+    <result column="INTEGRAL" jdbcType="INTEGER" property="integral" />
+    <result column="IS_DELETE" jdbcType="INTEGER" property="isDelete" />
+    <result column="IS_BEST" jdbcType="INTEGER" property="isBest" />
+    <result column="IS_NEW" jdbcType="INTEGER" property="isNew" />
+    <result column="IS_HOT" jdbcType="INTEGER" property="isHot" />
+    <result column="IS_PROMOTE" jdbcType="INTEGER" property="isPromote" />
+    <result column="BONUS_TYPE_ID" jdbcType="INTEGER" property="bonusTypeId" />
+    <result column="SELLER_NOTE" jdbcType="VARCHAR" property="sellerNote" />
+    <result column="GIVE_INTEGRAL" jdbcType="INTEGER" property="giveIntegral" />
+    <result column="EXTENDS_PARAM" jdbcType="VARCHAR" property="extendsParam" />
+  </resultMap>
+
+  <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.goods.GoodsParam">
+    INSERT INTO G_GOODS_PARAM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null and goodsId != ''">
+        GOODS_ID,
+      </if>
+      <if test="brandId != null">
+        BRAND_ID,
+      </if>
+      <if test="foodTaste != null and foodTaste != ''">
+        FOOD_TASTE,
+      </if>
+      <if test="weight != null">
+        WEIGHT,
+      </if>
+      <if test="length != null">
+        LENGTH,
+      </if>
+      <if test="size != null and size != ''">
+        SIZE,
+      </if>
+      <if test="color != null and color != ''">
+        COLOR,
+      </if>
+      <if test="packageType != null and packageType != ''">
+        PACKAGE_TYPE,
+      </if>
+      <if test="storageType != null and storageType != ''">
+        STORAGE_TYPE,
+      </if>
+      <if test="sourceAddr != null and sourceAddr != ''">
+        SOURCE_ADDR,
+      </if>
+      <if test="sourceSupplier != null and sourceSupplier != ''">
+        SOURCE_SUPPLIER,
+      </if>
+      <if test="produceAddr != null and produceAddr != ''">
+        PRODUCE_ADDR,
+      </if>
+      <if test="ingredients != null and ingredients != ''">
+        INGREDIENTS,
+      </if>
+      <if test="specs != null and specs != ''">
+        SPECS,
+      </if>
+      <if test="proStandard != null and proStandard != ''">
+        PRO_STANDARD,
+      </if>
+      <if test="proLicenseNo != null and proLicenseNo != ''">
+        PRO_LICENSE_NO,
+      </if>
+      <if test="eatMethod != null and eatMethod != ''">
+        EAT_METHOD,
+      </if>
+      <if test="clickCount != null">
+        CLICK_COUNT,
+      </if>
+      <if test="isAloneSale != null">
+        IS_ALONE_SALE,
+      </if>
+      <if test="integral != null">
+        INTEGRAL,
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE,
+      </if>
+      <if test="isBest != null">
+        IS_BEST,
+      </if>
+      <if test="isNew != null">
+        IS_NEW,
+      </if>
+      <if test="isHot != null">
+        IS_HOT,
+      </if>
+      <if test="isPromote != null">
+        IS_PROMOTE,
+      </if>
+      <if test="bonusTypeId != null">
+        BONUS_TYPE_ID,
+      </if>
+      <if test="sellerNote != null and sellerNote != ''">
+        SELLER_NOTE,
+      </if>
+      <if test="giveIntegral != null">
+        GIVE_INTEGRAL,
+      </if>
+      <if test="extendsParam != null and extendsParam != ''">
+        EXTENDS_PARAM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null and goodsId != ''">
+        #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="foodTaste != null and foodTaste != ''">
+        #{foodTaste,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=INTEGER},
+      </if>
+      <if test="size != null and size != ''">
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null and color != ''">
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="packageType != null and packageType != ''">
+        #{packageType,jdbcType=VARCHAR},
+      </if>
+      <if test="storageType != null and storageType != ''">
+        #{storageType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceAddr != null and sourceAddr != ''">
+        #{sourceAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSupplier != null and sourceSupplier != ''">
+        #{sourceSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="produceAddr != null and produceAddr != ''">
+        #{produceAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="ingredients != null and ingredients != ''">
+        #{ingredients,jdbcType=VARCHAR},
+      </if>
+      <if test="specs != null and specs != ''">
+        #{specs,jdbcType=VARCHAR},
+      </if>
+      <if test="proStandard != null and proStandard != ''">
+        #{proStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="proLicenseNo != null and proLicenseNo != ''">
+        #{proLicenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="eatMethod != null and eatMethod != ''">
+        #{eatMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="clickCount != null">
+        #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="isAloneSale != null">
+        #{isAloneSale,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null">
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="isBest != null">
+        #{isBest,jdbcType=INTEGER},
+      </if>
+      <if test="isNew != null">
+        #{isNew,jdbcType=INTEGER},
+      </if>
+      <if test="isHot != null">
+        #{isHot,jdbcType=INTEGER},
+      </if>
+      <if test="isPromote != null">
+        #{isPromote,jdbcType=INTEGER},
+      </if>
+      <if test="bonusTypeId != null">
+        #{bonusTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerNote != null and sellerNote != ''">
+        #{sellerNote,jdbcType=VARCHAR},
+      </if>
+      <if test="giveIntegral != null">
+        #{giveIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="extendsParam != null and extendsParam != ''">
+        #{extendsParam,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.goods.GoodsParam">
+    UPDATE G_GOODS_PARAM
+    <set>
+      <if test="goodsId != null and goodsId != ''">
+        GOODS_ID = #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null">
+        BRAND_ID = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="foodTaste != null and foodTaste != ''">
+        FOOD_TASTE = #{foodTaste,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        WEIGHT = #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="length != null">
+        `LENGTH` = #{length,jdbcType=INTEGER},
+      </if>
+      <if test="size != null and size != ''">
+        `SIZE` = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null and color != ''">
+        COLOR = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="packageType != null and packageType != ''">
+        PACKAGE_TYPE = #{packageType,jdbcType=VARCHAR},
+      </if>
+      <if test="storageType != null and storageType != ''">
+        STORAGE_TYPE = #{storageType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceAddr != null and sourceAddr != ''">
+        SOURCE_ADDR = #{sourceAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSupplier != null and sourceSupplier != ''">
+        SOURCE_SUPPLIER = #{sourceSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="produceAddr != null and produceAddr != ''">
+        PRODUCE_ADDR = #{produceAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="ingredients != null and ingredients != ''">
+        INGREDIENTS = #{ingredients,jdbcType=VARCHAR},
+      </if>
+      <if test="specs != null and specs != ''">
+        SPECS = #{specs,jdbcType=VARCHAR},
+      </if>
+      <if test="proStandard != null and proStandard != ''">
+        PRO_STANDARD = #{proStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="proLicenseNo != null and proLicenseNo != ''">
+        PRO_LICENSE_NO = #{proLicenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="eatMethod != null and eatMethod != ''">
+        EAT_METHOD = #{eatMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="clickCount != null">
+        CLICK_COUNT = #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="isAloneSale != null">
+        IS_ALONE_SALE = #{isAloneSale,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null">
+        INTEGRAL = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="isBest != null">
+        IS_BEST = #{isBest,jdbcType=INTEGER},
+      </if>
+      <if test="isNew != null">
+        IS_NEW = #{isNew,jdbcType=INTEGER},
+      </if>
+      <if test="isHot != null">
+        IS_HOT = #{isHot,jdbcType=INTEGER},
+      </if>
+      <if test="isPromote != null">
+        IS_PROMOTE = #{isPromote,jdbcType=INTEGER},
+      </if>
+      <if test="bonusTypeId != null">
+        BONUS_TYPE_ID = #{bonusTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerNote != null and sellerNote != ''">
+        SELLER_NOTE = #{sellerNote,jdbcType=VARCHAR},
+      </if>
+      <if test="giveIntegral != null">
+        GIVE_INTEGRAL = #{giveIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="extendsParam != null and extendsParam != ''">
+        EXTENDS_PARAM = #{extendsParam,jdbcType=VARCHAR},
+      </if>
+    </set>
+    WHERE GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT GOODS_ID, BRAND_ID, FOOD_TASTE, WEIGHT, `LENGTH`, `SIZE`, COLOR, PACKAGE_TYPE,
+    STORAGE_TYPE, SOURCE_ADDR, SOURCE_SUPPLIER, PRODUCE_ADDR, INGREDIENTS, SPECS, PRO_STANDARD, PRO_LICENSE_NO,
+    EAT_METHOD, CLICK_COUNT, IS_ALONE_SALE, INTEGRAL, IS_DELETE, IS_BEST, IS_NEW, IS_HOT,
+    IS_PROMOTE, BONUS_TYPE_ID, SELLER_NOTE, GIVE_INTEGRAL, EXTENDS_PARAM
+    FROM G_GOODS_PARAM
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT GOODS_ID, BRAND_ID, FOOD_TASTE, WEIGHT, `LENGTH`, `SIZE`, COLOR, PACKAGE_TYPE,
+    STORAGE_TYPE, SOURCE_ADDR, SOURCE_SUPPLIER, PRODUCE_ADDR, INGREDIENTS, SPECS, PRO_STANDARD, PRO_LICENSE_NO,
+    EAT_METHOD, CLICK_COUNT, IS_ALONE_SALE, INTEGRAL, IS_DELETE, IS_BEST, IS_NEW, IS_HOT,
+    IS_PROMOTE, BONUS_TYPE_ID, SELLER_NOTE, GIVE_INTEGRAL, EXTENDS_PARAM
+    FROM G_GOODS_PARAM
+    WHERE GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

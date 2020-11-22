@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.goods.GoodsCategoryMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.goods.GoodsCategory">
+    <result column="CATEGORY_ID" jdbcType="INTEGER" property="categoryId" />
+    <result column="CATEGORY_NAME" jdbcType="VARCHAR" property="categoryName" />
+    <result column="PARENT_ID" jdbcType="INTEGER" property="parentId" />
+    <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
+    <result column="CATY_DESC" jdbcType="VARCHAR" property="catyDesc" />
+    <result column="SORT_ORL" jdbcType="INTEGER" property="sortOrl" />
+    <result column="IS_SHOW_IN_NAV" jdbcType="INTEGER" property="isShowInNav" />
+    <result column="GRADE" jdbcType="INTEGER" property="grade" />
+    <result column="FILTER_ATTR" jdbcType="VARCHAR" property="filterAttr" />
+    <result column="IS_SHOW" jdbcType="INTEGER" property="isShow" />
+    <result column="IS_ENABLED" jdbcType="INTEGER" property="isEnabled" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.goods.GoodsCategory">
+    INSERT INTO G_CATEGORY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      CATEGORY_NAME,
+      PARENT_ID,
+      KEYWORDS,
+      SORT_ORL,
+      <if test="isShowInNav != null">
+        IS_SHOW_IN_NAV,
+      </if>
+      <if test="grade != null">
+        GRADE,
+      </if>
+      <if test="filterAttr != null">
+        FILTER_ATTR,
+      </if>
+      <if test="isShow != null">
+        IS_SHOW,
+      </if>
+      <if test="catyDesc != null">
+        CATY_DESC,,
+      </if>
+      IS_ENABLED,
+      CREATE_TIME,
+      CREATE_BY,
+      UPDATE_TIME,
+      UPDATE_BY,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{categoryName,jdbcType=VARCHAR},
+      #{parentId,jdbcType=INTEGER},
+      #{keywords,jdbcType=VARCHAR},
+      #{sortOrl,jdbcType=INTEGER},
+      <if test="isShowInNav != null">
+        #{isShowInNav,jdbcType=INTEGER},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="filterAttr != null">
+        #{filterAttr,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null">
+        #{isShow,jdbcType=INTEGER},
+      </if>
+      <if test="catyDesc != null">
+        #{catyDesc,jdbcType=VARCHAR},
+      </if>
+      #{isEnabled,jdbcType=INTEGER},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{createBy,jdbcType=VARCHAR},
+      #{updateTime,jdbcType=TIMESTAMP},
+      #{updateBy,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.goods.GoodsCategory">
+    UPDATE G_CATEGORY SET
+    <if test="categoryName != null">
+      CATEGORY_NAME = #{categoryName,jdbcType=VARCHAR},
+    </if>
+    <if test="keywords != null">
+      KEYWORDS = #{keywords,jdbcType=VARCHAR},
+    </if>
+    <if test="sortOrl != null">
+      SORT_ORL = #{sortOrl,jdbcType=INTEGER},
+    </if>
+    <if test="isShowInNav != null">
+      IS_SHOW_IN_NAV = #{isShowInNav,jdbcType=INTEGER},
+    </if>
+    <if test="grade != null">
+      GRADE = #{grade,jdbcType=INTEGER},
+    </if>
+    <if test="filterAttr != null">
+      FILTER_ATTR = #{filterAttr,jdbcType=VARCHAR},
+    </if>
+    <if test="isEnabled != null">
+      IS_ENABLED = #{isEnabled,jdbcType=INTEGER},
+    </if>
+    <if test="isShow != null">
+      IS_SHOW = #{isShow,jdbcType=INTEGER},
+    </if>
+    <if test="catyDesc != null">
+      CATY_DESC = #{catyDesc,jdbcType=VARCHAR},
+    </if>
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{updateBy,jdbcType=VARCHAR}
+    WHERE CATEGORY_ID = #{categoryId,jdbcType=INTEGER}
+  </update>
+  <select id="queryCategoryList" resultMap="BaseResultMap">
+    SELECT CATEGORY_ID, CATEGORY_NAME, PARENT_ID, KEYWORDS, CATY_DESC, SORT_ORL, IS_SHOW_IN_NAV,
+    GRADE, FILTER_ATTR, IS_SHOW, IS_ENABLED, CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY
+    FROM G_CATEGORY
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT CATEGORY_ID, CATEGORY_NAME, PARENT_ID, KEYWORDS, CATY_DESC, SORT_ORL, IS_SHOW_IN_NAV,
+    GRADE, FILTER_ATTR, IS_SHOW, IS_ENABLED, CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY
+    FROM G_CATEGORY
+    WHERE CATEGORY_ID = #{categoryId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="findCategoryTree" resultMap="BaseResultMap">
+        SELECT CATEGORY_ID, CATEGORY_NAME, PARENT_ID, KEYWORDS, CATY_DESC, SORT_ORL, IS_SHOW_IN_NAV,
+        GRADE, FILTER_ATTR, IS_SHOW, IS_ENABLED, CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY
+        FROM G_CATEGORY
+        WHERE IS_SHOW = 1
+        ORDER BY SORT_ORL ASC
+  </select>
+  
+  
+</mapper>

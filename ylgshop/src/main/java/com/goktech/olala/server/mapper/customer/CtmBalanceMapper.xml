@@ -11,6 +11,7 @@
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="CHANGE_DESC" jdbcType="VARCHAR" property="changeDesc" />
   </resultMap>
+
   <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmBalance">
     INSERT INTO C_BALANCE_LOG (BALANCE_ID, CUSTOMER_ID, SOURCE,
       SOURCE_SN, AMOUNT, FROZEN_MONEY, 
@@ -19,6 +20,7 @@
       #{sourceSn,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, #{frozenMoney,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{changeDesc,jdbcType=VARCHAR})
   </insert>
+
   <select id="queryBalance" resultMap="BaseResultMap">
     SELECT BALANCE_ID, CUSTOMER_ID, SOURCE, SOURCE_SN, AMOUNT, FROZEN_MONEY, CREATE_TIME,
     CHANGE_DESC

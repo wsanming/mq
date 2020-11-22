@@ -19,10 +19,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-//import com.goktech.olala.server.dao.goods.IndexArticleMapper;
-//import com.goktech.olala.server.pojo.goods.IndexAdvers;
-//import com.goktech.olala.server.pojo.goods.IndexArticle;
-
+/**
+ * @author sanming
+ */
 @Service("ctmIndexService")
 public class CtmIndexServiceImpl implements ICtmIndexService {
     @Autowired

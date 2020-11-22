@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.goods.GoodsBrandMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.goods.GoodsBrand">
+    <id column="BRAND_ID" jdbcType="INTEGER" property="brandId" />
+    <result column="BRAND_NAME" jdbcType="VARCHAR" property="brandName" />
+    <result column="BRAND_TYPE" jdbcType="INTEGER" property="brandType" />
+    <result column="CATEGORY_ID" jdbcType="INTEGER" property="categoryId" />
+    <result column="BRAND_LOGO" jdbcType="VARCHAR" property="brandLogo" />
+    <result column="SITE_URL" jdbcType="VARCHAR" property="siteUrl" />
+    <result column="SORT_ORL" jdbcType="INTEGER" property="sortOrl" />
+    <result column="IS_SHOW" jdbcType="INTEGER" property="isShow" />
+    <result column="BRAND_DESC" jdbcType="LONGVARCHAR" property="brandDesc" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy"/>
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy"/>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    DELETE FROM G_GOODS_BRAND
+    WHERE BRAND_ID = #{brandId,jdbcType=SMALLINT}
+  </delete>
+
+  <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.goods.GoodsBrand">
+    INSERT INTO G_GOODS_BRAND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="brandName != null and brandName != ''">
+        BRAND_NAME,
+      </if>
+      <if test="brandType != null">
+        BRAND_TYPE,
+      </if>
+      <if test="categoryId != null">
+        CATEGORY_ID,
+      </if>
+      <if test="brandLogo != null and brandLogo != ''">
+        BRAND_LOGO,
+      </if>
+      <if test="siteUrl != null and siteUrl != ''">
+        SITE_URL,
+      </if>
+      <if test="sortOrl != null">
+        SORT_ORL,
+      </if>
+      <if test="isShow != null">
+        IS_SHOW,
+      </if>
+      <if test="brandDesc != null and brandDesc != ''">
+        BRAND_DESC,
+      </if>
+      CREATE_TIME,
+      CREATE_BY,
+      UPDATE_TIME,
+      UPDATE_BY,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="brandName != null and brandName != ''">
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandType != null">
+        #{brandType,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="brandLogo != null and brandLogo != ''">
+        #{brandLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="siteUrl != null and siteUrl != ''">
+        #{siteUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOrl != null">
+        #{sortOrl,jdbcType=INTEGER},
+      </if>
+      <if test="isShow != null">
+        #{isShow,jdbcType=INTEGER},
+      </if>
+      <if test="brandDesc != null and brandDesc != ''">
+        #{brandDesc,jdbcType=LONGVARCHAR},
+      </if>
+      #{createTime,jdbcType=TIMESTAMP},
+      #{createBy,jdbcType=VARCHAR},
+      #{updateTime,jdbcType=TIMESTAMP},
+      #{updateBy,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.goods.GoodsBrand">
+    UPDATE G_GOODS_BRAND
+    <set>
+      <if test="brandName != null and brandName != ''">
+        BRAND_NAME = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandType != null">
+        BRAND_TYPE = #{brandType,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        CATEGORY_ID = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="brandLogo != null and brandLogo != ''">
+        BRAND_LOGO = #{brandLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="siteUrl != null and siteUrl != ''">
+        SITE_URL = #{siteUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOrl != null">
+        SORT_ORL = #{sortOrl,jdbcType=INTEGER},
+      </if>
+      <if test="isShow != null">
+        IS_SHOW = #{isShow,jdbcType=INTEGER},
+      </if>
+      <if test="brandDesc != null and brandDesc != ''">
+        BRAND_DESC = #{brandDesc,jdbcType=LONGVARCHAR},
+      </if>
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{updateBy,jdbcType=VARCHAR}
+    </set>
+    WHERE BRAND_ID = #{brandId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT BRAND_ID, BRAND_NAME, BRAND_TYPE, CATEGORY_ID, BRAND_LOGO, SITE_URL, SORT_ORL, IS_SHOW,
+    BRAND_DESC,CREATE_TIME,CREATE_BY,UPDATE_TIME,UPDATE_BY
+    FROM G_GOODS_BRAND
+    WHERE BRAND_ID = #{brandId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT BRAND_ID, BRAND_NAME, BRAND_TYPE, CATEGORY_ID, BRAND_LOGO, SITE_URL, SORT_ORL, IS_SHOW,
+    BRAND_DESC,CREATE_TIME,CREATE_BY,UPDATE_TIME,UPDATE_BY
+    FROM G_GOODS_BRAND
+  </select>
+</mapper>

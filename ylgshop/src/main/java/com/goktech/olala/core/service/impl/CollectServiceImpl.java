@@ -68,12 +68,4 @@ public class CollectServiceImpl implements ICollectService {
         collectVo.setIsCancel(ctmCollect.getIsCancel());
         return collectVo;
     }
-
-    @Override
-    public int cancelCollect(ReqCollect reqCollect) throws Exception {
-        if(reqCollect == null || reqCollect.getCustomerId() == null){
-            return 0;
-        }
-        return collectMapper.updateByExample(reqCollect);
-    }
 }

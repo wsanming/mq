@@ -12,55 +12,25 @@ import com.goktech.olala.server.pojo.goods.GoodsPicture;
 
 import java.util.List;
 
+/**
+ * @author sanming
+ * @Classname IGoodsService
+ * @Description
+ */
 public interface IGoodsService {
 
-    /**
-     * 根据查询条件查询所有商品
-     *
-     * @param goodsReq
-     * @param pageNum
-     * @param pageSize
-     * @return
-     */
-    PageInfo<RespGoodsVo> queryGoodsByParam(ReqGoods goodsReq, Integer pageNum, Integer pageSize) throws Exception;
 
     List<RespGoodsVo> queryGoodsByParam(ReqGoods goodsReq) throws Exception;
 
-    /**
-     * 根据主键ID删除商品信息
-     *
-     * @param goodsId
-     * @return
-     * @throws Exception
-     */
-    int removeGoodsById(String goodsId) throws Exception;
-
-    /**
-     * 根据主键ID上/下架商品
-     *
-     * @param goodsId
-     * @return
-     * @throws Exception
-     */
-    int updateGoodsIsOnById(String goodsId, Integer isOnSale) throws Exception;
 
     /**
      * 根据主键ID查询商品信息
-     *
      * @param goodsId
      * @return
      * @throws Exception
      */
     RespGoodsVo queryGoodsById(String goodsId) throws Exception;
 
-    /**
-     * 保存商品信息
-     *
-     * @param goodsReq
-     * @return
-     * @throws Exception
-     */
-    int saveGoodsInfo(ReqGoods goodsReq) throws Exception;
 
 
     /**
@@ -75,32 +45,6 @@ public interface IGoodsService {
 
     List<RespGoodsBrandVo> queryGoodsBrandByParam(ReqGoodsBrand goodsBrandReq) throws Exception;
 
-    /**
-     * 根据主键查询品牌信息
-     *
-     * @param brandId
-     * @return
-     * @throws Exception
-     */
-    RespGoodsBrandVo queryBrandInfoById(Long brandId) throws Exception;
-
-    /**
-     * 保存品牌信息
-     *
-     * @param goodsBrandReq
-     * @return
-     * @throws Exception
-     */
-    int saveBrandInfo(ReqGoodsBrand goodsBrandReq) throws Exception;
-
-    /**
-     * 根据主键删除品牌信息
-     *
-     * @param brandId
-     * @return
-     * @throws Exception
-     */
-    int removeBrandById(Long brandId) throws Exception;
 
     /**
      * 查询商品分类
