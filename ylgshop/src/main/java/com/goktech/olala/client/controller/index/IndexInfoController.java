@@ -25,14 +25,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/index")
 public class IndexInfoController {
-
-
     @Autowired
     ICtmIndexService ctmIndexService;
-
     @Autowired
     IGoodsService goodsService;
-
     @RequestMapping("/init.do")
     @ResponseBody
     public ModelAndView init() throws Exception {
