@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.goods.IndexActivitMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.goods.GoodsActivit">
+    <result column="ACTIVIT_ID" jdbcType="SMALLINT" property="activitId" />
+    <result column="SLOGAN" jdbcType="VARCHAR" property="slogan" />
+    <result column="ACTIVIT_IMG" jdbcType="VARCHAR" property="activitImg" />
+    <result column="ACTIVIT_CONTENT" jdbcType="VARCHAR" property="activitContent" />
+    <result column="LINK_URL" jdbcType="VARCHAR" property="linkUrl" />
+    <result column="SORT_ORDER" jdbcType="TINYINT" property="sortOrder" />
+    <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="IS_FINISHED" jdbcType="BIT" property="isFinished" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.goods.GoodsActivit">
+    INSERT INTO G_ACTIVIT (ACTIVIT_ID, SLOGAN, ACTIVIT_IMG,
+      ACTIVIT_CONTENT, LINK_URL, SORT_ORDER, 
+      START_TIME, END_TIME, IS_FINISHED, 
+      CREATE_TIME, CREATE_BY, UPDATE_TIME, 
+      UPDATE_BY)
+    VALUES (#{activitId,jdbcType=SMALLINT}, #{slogan,jdbcType=VARCHAR}, #{activitImg,jdbcType=VARCHAR},
+      #{activitContent,jdbcType=VARCHAR}, #{linkUrl,jdbcType=VARCHAR}, #{sortOrder,jdbcType=TINYINT}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{isFinished,jdbcType=BIT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT ACTIVIT_ID, SLOGAN, ACTIVIT_IMG, ACTIVIT_CONTENT, LINK_URL, SORT_ORDER, START_TIME,
+    END_TIME, IS_FINISHED, CREATE_TIME, CREATE_BY, UPDATE_TIME, UPDATE_BY
+    FROM G_ACTIVIT
+  </select>
+</mapper>
