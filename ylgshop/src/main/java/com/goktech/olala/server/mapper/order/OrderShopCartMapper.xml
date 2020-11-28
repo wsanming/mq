@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.order.OrderShopCartMapper">
+    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.order.OrderShopCart">
+        <id column="SHOP_CART_ID" jdbcType="BIGINT" property="shopCartId"/>
+        <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId"/>
+        <result column="SESSION_ID" jdbcType="CHAR" property="sessionId"/>
+        <result column="GOODS_ID" jdbcType="VARCHAR" property="goodsId"/>
+        <result column="GOODS_SN" jdbcType="VARCHAR" property="goodsSn"/>
+        <result column="GOODS_NAME" jdbcType="VARCHAR" property="goodsName"/>
+        <result column="CART_TYPE" jdbcType="INTEGER" property="cartType"/>
+        <result column="GOODS_ATTR" jdbcType="VARCHAR" property="goodsAttr"/>
+        <result column="GOODS_AMOUNT" jdbcType="INTEGER" property="goodsAmount"/>
+        <result column="MARKET_PRICE" jdbcType="INTEGER" property="marketPrice"/>
+        <result column="SHOP_PRICE" jdbcType="INTEGER" property="shopPrice"/>
+        <result column="REAL_BUY_PRiCE" jdbcType="INTEGER" property="realBuyPrice"/>
+        <result column="IS_OPEN_SALE" jdbcType="INTEGER" property="isOpenSale"/>
+        <result column="PARENT_GOODS_ID" jdbcType="VARCHAR" property="parentGoodsId"/>
+        <result column="IS_GIFT" jdbcType="INTEGER" property="isGift"/>
+        <result column="CAN_HANDLE" jdbcType="INTEGER" property="canHandle"/>
+        <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime"/>
+        <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime"/>
+    </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    DELETE FROM O_SHOP_CART
+    WHERE SHOP_CART_ID = #{shopCartId,jdbcType=BIGINT}
+  </delete>
+
+    <insert id="insertByExample" parameterType="com.goktech.olala.server.pojo.order.OrderShopCart">
+    INSERT INTO O_SHOP_CART (
+        <if test="sessionId != null and sessionId != ''">
+            SESSION_ID,
+        </if>
+        <if test="customerId != null and customerId != ''">
+            CUSTOMER_ID,
+        </if>
+        <if test="goodsId != null and goodsId != ''">
+            GOODS_ID,
+        </if>
+        <if test="goodsSn != null and goodsSn != ''">
+            GOODS_SN,
+        </if>
+        <if test="goodsName != null and goodsName != ''">
+            GOODS_NAME,
+        </if>
+        <if test="cartType != null">
+            CART_TYPE,
+        </if>
+        <if test="goodsAttr != null and goodsAttr != ''">
+            GOODS_ATTR,
+        </if>
+        <if test="goodsAmount != null">
+            GOODS_AMOUNT,
+        </if>
+        <if test="marketPrice != null">
+            MARKET_PRICE,
+        </if>
+        <if test="shopPrice != null">
+            SHOP_PRICE,
+        </if>
+        <if test="realBuyPrice != null">
+            REAL_BUY_PRICE,
+        </if>
+        <if test="isOpenSale != null">
+            IS_OPEN_SALE,
+        </if>
+        <if test="parentGoodsId != null and parentGoodsId != null">
+            PARENT_GOODS_ID,
+        </if>
+        <if test="isGift != null">
+            IS_GIFT,
+        </if>
+        <if test="canHandle != null">
+            CAN_HANDLE,
+        </if>
+        ADD_TIME,MODIFIED_TIME)
+    VALUES (
+        <if test="sessionId != null and sessionId != ''">
+            #{sessionId,jdbcType=VARCHAR},
+        </if>
+        <if test="customerId != null and customerId != ''">
+            #{customerId,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsId != null and goodsId != ''">
+            #{goodsId,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsSn != null and goodsSn != ''">
+            #{goodsSn,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsName != null and goodsName != ''">
+            #{goodsName,jdbcType=VARCHAR},
+        </if>
+        <if test="cartType != null">
+            #{cartType,jdbcType=TINYINT},
+        </if>
+        <if test="goodsAttr != null and goodsAttr != ''">
+            #{goodsAttr,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsAmount != null">
+            #{goodsAmount,jdbcType=INTEGER},
+        </if>
+        <if test="marketPrice != null">
+            #{marketPrice,jdbcType=INTEGER},
+        </if>
+        <if test="shopPrice != null">
+            #{shopPrice,jdbcType=INTEGER},
+        </if>
+        <if test="realBuyPrice != null">
+            #{realBuyPrice,jdbcType=INTEGER},
+        </if>
+        <if test="isOpenSale != null">
+            #{isOpenSale,jdbcType=TINYINT},
+        </if>
+        <if test="parentGoodsId != null and parentGoodsId != null">
+            #{parentGoodsId,jdbcType=VARCHAR},
+        </if>
+        <if test="isGift != null">
+            #{isGift,jdbcType=SMALLINT},
+        </if>
+        <if test="canHandle != null">
+            #{canHandle,jdbcType=TINYINT},
+        </if>
+      #{addTime,jdbcType=TIMESTAMP},#{modifiedTime,jdbcType=TIMESTAMP})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="java.lang.Integer">
+        UPDATE O_SHOP_CART
+        <set>
+            <if test="sessionId != null and sessionId != ''">
+                SESSION_ID = #{sessionId,jdbcType=CHAR},
+            </if>
+            <if test="customerId != null and customerId != ''">
+                CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsId != null and goodsId != ''">
+                GOODS_ID = #{goodsId,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsSn != null and goodsSn != ''">
+                GOODS_SN = #{goodsSn,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                GOODS_NAME = #{goodsName,jdbcType=VARCHAR},
+            </if>
+            <if test="cartType != null">
+                CART_TYPE = #{cartType,jdbcType=INTEGER},
+            </if>
+            <if test="goodsAttr != null and goodsAttr != ''">
+                GOODS_ATTR = #{goodsAttr,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsAmount != null">
+                GOODS_AMOUNT = #{goodsAmount,jdbcType=INTEGER},
+            </if>
+            <if test="marketPrice != null">
+                MARKET_PRICE = #{marketPrice,jdbcType=INTEGER},
+            </if>
+            <if test="shopPrice != null">
+                SHOP_PRICE = #{shopPrice,jdbcType=INTEGER},
+            </if>
+            <if test="realBuyPrice != null">
+                REAL_BUY_PRICE = #{realBuyPrice,jdbcType=INTEGER},
+            </if>
+            <if test="isOpenSale != null">
+                IS_OPEN_SALE = #{isOpenSale,jdbcType=INTEGER},
+            </if>
+            <if test="parentGoodsId != null and parentGoodsId != null">
+                PARENT_GOODS_ID = #{parentGoodsId,jdbcType=VARCHAR},
+            </if>
+            <if test="isGift != null">
+                IS_GIFT = #{isGift,jdbcType=INTEGER},
+            </if>
+            <if test="canHandle != null">
+                CAN_HANDLE = #{canHandle,jdbcType=INTEGER},
+            </if>
+            MODIFIED_TIME = #{modifiedTime,jdbcType=TIMESTAMP},
+        </set>
+        WHERE SHOP_CART_ID = #{shopCartId,jdbcType=BIGINT}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT CUSTOMER_ID,SHOP_CART_ID,SESSION_ID,GOODS_ID,GOODS_SN,GOODS_NAME,
+    CART_TYPE,GOODS_ATTR,GOODS_AMOUNT,MARKET_PRICE,SHOP_PRICE,
+    REAL_BUY_PRICE,IS_OPEN_SALE,PARENT_GOODS_ID,IS_GIFT,CAN_HANDLE,
+    ADD_TIME,MODIFIED_TIME
+    FROM O_SHOP_CART
+    WHERE SHOP_CART_ID = #{shopCartId,jdbcType=BIGINT}
+    </select>
+
+    <delete id="deleteByParam" parameterType="java.lang.String">
+    DELETE FROM O_SHOP_CART
+    WHERE GOODS_ID = #{goodsId,jdbcType=VARCHAR} AND
+    CUSTOMER_ID = #{customerId,jdbcType=VARCHAR}
+  </delete>
+
+</mapper>

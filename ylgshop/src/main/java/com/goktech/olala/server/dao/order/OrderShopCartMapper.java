@@ -9,6 +9,9 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
+/**
+ * @author sanming
+ */
 public interface OrderShopCartMapper {
 
     @Select("<script>" +
